@@ -5,15 +5,15 @@ import Footer from "../../components/footer/footer"
 import AchievementsBlock from "../../components/achievementsBlock/achievementsBlock"
 import { useActions } from "../../hooks/useActions"
 import { useEffect } from "react"
-import { fetchAchievements } from "../../store/action-creator/achievements"
+//import { fetchAchievements } from "../../store/action-creator/achievements"
 import { useTypedSelectors } from "../../hooks/useTypedSelectors"
 import "./AchievementsPage.scss"
 import TodaysPicture from "../../components/todaysPicture/todaysPicture"
 const AchievementsPage =()=> {
-    const {fetchAchievements, fetchUsers} =useActions()
+    //const {fetchAchievements, fetchUsers} =useActions()
   // const {pictures, error, loading}=useTypedSelectors(state=> state.achievements)
     useEffect(()=> {
-fetchAchievements()
+//fetchAchievements()
     }, [])
     return (
         <div className="achievementsPage">

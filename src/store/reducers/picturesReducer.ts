@@ -5,7 +5,7 @@ const initialState: UserState= {
     loading: false,
     error: null
 }
-export const achievementsReducer= (state=initialState, action: UserAction): UserState=> {
+export const picturesReducer= (state=initialState, action: UserAction): UserState=> {
     switch( action.type){
 case UserActionTypes.FETCH_PHOTO:
     return {loading: true, error: null, pictures: []}
