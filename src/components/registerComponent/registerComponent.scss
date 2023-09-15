@@ -1,0 +1,133 @@
+
+
+.registrationForm {
+    // margin-top: 50px ;
+    
+     margin: 0 auto;
+     background-color: #15172b;
+     border-radius: 20px;
+     box-sizing: border-box;
+     height: 650px;
+     padding: 20px;
+   //  width: 320px;
+   max-width: 80%;
+   width: 100%;
+     position: relative;
+     top: 50px
+   }
+   
+   .registrationTitle {
+     color: #eee;
+     font-family: sans-serif;
+     font-size: 36px;
+     font-weight: 600;
+     margin-top: 30px;
+   }
+   
+   .registrationSubtitle {
+     color: #eee;
+     font-family: sans-serif;
+     font-size: 16px;
+     font-weight: 600;
+     margin-top: 10px;
+   }
+   
+   .input-container {
+     height: 50px;
+     position: relative;
+     width: 100%;
+   }
+   
+   .ic1 {
+     margin-top: 40px;
+   }
+   
+   .ic2 {
+     margin-top: 30px;
+   }
+   
+   .registrationInput {
+     background-color: #303245;
+     border-radius: 12px;
+     border: 0;
+     box-sizing: border-box;
+     color: #eee;
+     font-size: 18px;
+     height: 100%;
+     outline: 0;
+     padding: 4px 20px 0;
+     width: 100%;
+   }
+   
+   .registrationCut {
+     background-color: #15172b;
+     border-radius: 10px;
+     height: 20px;
+     left: 20px;
+     position: absolute;
+     top: -20px;
+     transform: translateY(0);
+     transition: transform 200ms;
+     width: 76px;
+   }
+   
+   .cut-short {
+     width: 50px;
+   }
+   
+   .registrationInput:focus ~ .registrationCut,
+   .registrationInput:not(:placeholder-shown) ~ .registrationCut {
+     transform: translateY(8px);
+   }
+   
+   .registrationPlaceholder {
+     color: #65657b;
+     font-family: sans-serif;
+     left: 20px;
+     line-height: 14px;
+     pointer-events: none;
+     position: absolute;
+     transform-origin: 0 50%;
+     transition: transform 200ms, color 200ms;
+     top: 20px;
+   }
+   .registrationInput:focus ~ .registrationPlaceholder,
+   .registrationInput:not(:placeholder-shown) ~ .registrationPlaceholder {
+     transform: translateY(-30px) translateX(10px) scale(0.75);
+   }
+   .registrationInput:not(:placeholder-shown) ~ .registrationPlaceholder {
+     color: #808097;
+   }
+   
+   .registrationInput:focus ~ .registrationPlaceholder {
+     color: #dc2f55;
+   }
+   
+   .registrationSubmit {
+     background-color: #08d;
+     border-radius: 12px;
+     border: 0;
+     box-sizing: border-box;
+     color: #eee;
+     cursor: pointer;
+     font-size: 18px;
+     height: 50px;
+     margin-top: 38px;
+     text-align: center;
+     width: 100%;
+   }
+   
+   .registrationSubmit:active {
+     background-color: #06b;
+   }
+   .haveAnAccount {
+     color: #eee;
+     text-align: center;
+     position: relative;
+     top: 30px;
+     cursor: pointer;
+   }
+ 
+   .registrationPassword {
+ 
+   }

@@ -1,0 +1,21 @@
+.navigationWindow {
+    background-color: #15172b;
+    width: 200px;
+    height: auto;
+ //   height: 300px;
+    position: absolute;
+    z-index: 111;
+    top: 100px;
+    left: 140px;
+}
+
+
+
+.triangleWindow {
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 40px solid    #15172b; 
+ transform: translateY(-20px);
+}
