@@ -12,14 +12,14 @@ import TodaysPicture from "../../components/todaysPicture/todaysPicture"
 import { AllDailyPicturesActionTypes } from "../../types/allDailyPictures"
 import AllDailyPicturesItem from "../../components/allDailyPicturesItem/allDailyPicturesItem"
 import PanelForDailyPictureSearch from "../../components/panelForDailyPictureSearch/panelForDailyPictureSearch"
+import SearchByDataMonth from "../../components/searchByMonthComponent/searchByMonthComponent"
+import Spinner from 'react-bootstrap/Spinner';
 const AchievementsPage =()=> {
  const [isClicked, setIsClicked] =useState(false)
  const [isClickedMonth, setIsClickedMonth]=useState(false)
  const { fetchAllDailyPictures} = useActions();
 
  const {limitBefore, error, loading,pictures, limit}=useTypedSelectors(state=> state.allDailyPicturesReducer)
-
-
 useEffect(()=> {
   fetchAllDailyPictures(limitBefore, limit)
       }, [limitBefore])
@@ -32,8 +32,12 @@ useEffect(()=> {
  isClickedMonth={isClickedMonth} 
  setIsClickedMonth={setIsClickedMonth}
  />
-     <TodaysPicture isClicked={isClicked} setIsClicked={setIsClicked} /> 
-    <div>
+   <TodaysPicture isClicked={isClicked}
+      setIsClicked={setIsClicked} 
+      setIsClickedMonth={setIsClickedMonth} 
+    isClickedMonth={isClickedMonth} />  
+    <div className="allDailyPicturesItems">
+   
 {pictures.map(item=> (
   <>
 <AllDailyPicturesItem item={item} />

@@ -5,12 +5,13 @@ import SearchByYearOption from "./searchByYearOption";
 import "./searchByDataComponent.scss";
 import { useActions } from "../../hooks/useActions";
 import { useState } from "react";
+import { months } from "../../utils/month";
 interface TodaysPictureProps {
   isClicked: boolean,
   setIsClicked:  React.Dispatch<React.SetStateAction<boolean>>;
       }
 const SearchByDataComponent = ({isClicked, setIsClicked}: TodaysPictureProps) => {
-  const { fetchPictures } = useActions();
+  const {  fetchAllDailyPictures } = useActions();
   const [data, setData] = useState({
     year: "",
     month: "",
@@ -21,12 +22,22 @@ const SearchByDataComponent = ({isClicked, setIsClicked}: TodaysPictureProps) =>
     const { name, value } = event.target;
     setData({ ...data, [name]: value });
   };
-
   const searchFunction = (event:  React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     event.stopPropagation();
     console.log(data)
-    fetchPictures(data)
+    let year=data.year
+    let day =data.day
+ let month = String(months.indexOf(data.month)+1)
+if(month.length==1) {
+  month="0"+month
+ }
+ 
+ if(day.length==1) {
+  day="0"+day
+ }
+let date=`${year}-${month}-${day}`
+   fetchAllDailyPictures(date, date)
   };
 
   return (

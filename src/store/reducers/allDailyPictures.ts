@@ -37,7 +37,7 @@ export const allDailyPicturesReducer= (state=initialState, action: AllDailyPictu
     case AllDailyPicturesActionTypes.FETCH_ALL_DAILY_PICTURES_SUCCESS:
         const reversedArray = (action.payload).reverse()
         return {...state, loading: false, pictures: reversedArray}
-    //    return {...state, loading: false, pictures: action.payload}
+  
         case AllDailyPicturesActionTypes.FETCH_ALL_DAILY_PICTURES_ERROR:
             return {...state, loading: false, error: action.payload}
     default:

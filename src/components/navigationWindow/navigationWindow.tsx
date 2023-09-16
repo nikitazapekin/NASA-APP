@@ -7,7 +7,6 @@ interface NavigationProps {
  isOpen: boolean,
  setIsOpen:  React.Dispatch<React.SetStateAction<boolean>>;
      }
-     
 const NavigationWindow  =({isOpen, setIsOpen}: NavigationProps) => {
  
     useEffect(() => {

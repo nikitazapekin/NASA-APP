@@ -1,0 +1,30 @@
+.searchByDataLineMonth {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+ /*   background-color: rgb(44, 1, 96);
+    height: 60px;
+    max-width: 80%;
+    width: 100%; */
+    
+   }
+   .searchByDataComponentButtonMonth {
+       background-color: rgb(44, 1, 96);
+       outline: none;
+       border: none;
+   width: 150px;
+   height: 30px;
+   color: #fff;
+   font-weight: 700;
+   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+   cursor: pointer;
+   }
+   .searchByDataComponentInputMonth {
+       border: none;
+       outline: none;
+       padding-left: 40px;
+       height: 30px;
+   }
+   
+   
