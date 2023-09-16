@@ -1,0 +1,43 @@
+.buttonThatAllowsToSearchByMonth{
+    background-color: rgb(44, 1, 96);
+    border: none;
+    outline: none;
+    position:fixed;
+    right: 0;
+border: none;
+outline: none;
+color: #fff;
+width: 150px;
+height: 60px;
+border-radius: 10px;
+font-size: 20px;
+top: 160px;
+cursor: pointer;
+margin-right: 50px;
+box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+z-index: 111;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+
+.buttonThatAllowsToSearchByDate{
+    background-color: rgb(44, 1, 96);
+    border: none;
+    outline: none;
+    position:fixed;
+    right: 0;
+border: none;
+outline: none;
+color: #fff;
+width: 150px;
+height: 60px;
+border-radius: 10px;
+font-size: 20px;
+top: 90px;
+cursor: pointer;
+margin-right: 50px;
+box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+z-index: 111;
+} 

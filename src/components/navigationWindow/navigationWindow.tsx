@@ -9,16 +9,7 @@ interface NavigationProps {
      }
      
 const NavigationWindow  =({isOpen, setIsOpen}: NavigationProps) => {
-  /*  const handleClick = (event: React.MouseEvent) => {
-        event.preventDefault();
-        event.stopPropagation();
-        const target = event.target as HTMLElement; 
-        if(target){
-        }
-        if (!target) {
-            setIsOpen(false);
-        }
-    } */
+ 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
           const target = event.target as HTMLElement;

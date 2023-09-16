@@ -4,7 +4,7 @@ import { bindActionCreators } from "redux"
 import actionCreator from "../store/action-creator"
 export const useActions = ()=> {
     const dispatch =useDispatch()
-    console.log(actionCreator)
+  // console.log(actionCreator)
     return bindActionCreators(actionCreator, dispatch)
   //  return bindActionCreators(UserActionCreators, dispatch)
 }

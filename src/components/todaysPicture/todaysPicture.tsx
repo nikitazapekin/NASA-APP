@@ -9,19 +9,6 @@ interface TodaysPictureProps {
         }
 const TodaysPicture=({isClicked, setIsClicked}: TodaysPictureProps)=> {
     const {pictures, error, loading}=useTypedSelectors(state=> state.achievements)
- /*   const handleClick = (event: React.MouseEvent) => {
-        event.preventDefault();
-        event.stopPropagation();
-        const target = event.target as HTMLElement; 
-        if(target){
-        }
-        if (!target) {
-            setIsClicked(false);
-        }
-    }
- */
-
-
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
           const target = event.target as HTMLElement;

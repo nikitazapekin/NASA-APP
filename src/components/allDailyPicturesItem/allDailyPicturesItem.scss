@@ -1,0 +1,31 @@
+.allDailyPicturesItem{
+    width: 100%;
+    max-width: 90%;
+    height: auto;
+    background-color: rgb(44, 1, 96);
+   margin: 0 auto;
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+   color: #fff;
+}
+
+.allDailyPicturesItemImg {
+    max-width: 90%;
+    width: 100%;
+    height:  auto;
+    margin: 0 auto;
+}
+.allDailyPicturesItemText {
+    max-width: 90%;
+    width: 100%;
+   margin: 0 auto;
+   padding-top: 30px;
+}
+.allDailyPicturesItemLine {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    white-space: nowrap;
+    padding: 30px;
+}

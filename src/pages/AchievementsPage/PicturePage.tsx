@@ -9,15 +9,49 @@ import { useTypedSelectors } from "../../hooks/useTypedSelectors"
 import "./PicturesPage.scss"
 import { useState } from "react"
 import TodaysPicture from "../../components/todaysPicture/todaysPicture"
+import { AllDailyPicturesActionTypes } from "../../types/allDailyPictures"
+import AllDailyPicturesItem from "../../components/allDailyPicturesItem/allDailyPicturesItem"
+import PanelForDailyPictureSearch from "../../components/panelForDailyPictureSearch/panelForDailyPictureSearch"
 const AchievementsPage =()=> {
  const [isClicked, setIsClicked] =useState(false)
+ const [isClickedMonth, setIsClickedMonth]=useState(false)
+ const { fetchAllDailyPictures} = useActions();
+
+ const {limitBefore, error, loading,pictures, limit}=useTypedSelectors(state=> state.allDailyPicturesReducer)
+
+
+useEffect(()=> {
+  fetchAllDailyPictures(limitBefore, limit)
+      }, [limitBefore])
     return (
         <div className="achievementsPage">
         <Navigation />
-<button onClick={()=>setIsClicked(true)} className="buttonThatAllowsToSearchByDate">Search by date</button>
+<PanelForDailyPictureSearch
+ isClicked={isClicked} 
+ setIsClicked={setIsClicked} 
+ isClickedMonth={isClickedMonth} 
+ setIsClickedMonth={setIsClickedMonth}
+ />
      <TodaysPicture isClicked={isClicked} setIsClicked={setIsClicked} /> 
-   {/*   <Footer /> */}
-       
+    <div>
+{pictures.map(item=> (
+  <>
+<AllDailyPicturesItem item={item} />
+  </>
+)
+    )}
+
+        </div>
+
+
+
+
+<button onClick={()=> {
+fetchAllDailyPictures("2022-05-01", "2022-06-01")
+
+}}>
+  sss
+</button>
         </div>
     )
 }
