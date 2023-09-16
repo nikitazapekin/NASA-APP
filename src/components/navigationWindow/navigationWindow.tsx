@@ -9,7 +9,7 @@ interface NavigationProps {
      }
      
 const NavigationWindow  =({isOpen, setIsOpen}: NavigationProps) => {
-    const handleClick = (event: React.MouseEvent) => {
+  /*  const handleClick = (event: React.MouseEvent) => {
         event.preventDefault();
         event.stopPropagation();
         const target = event.target as HTMLElement; 
@@ -18,7 +18,7 @@ const NavigationWindow  =({isOpen, setIsOpen}: NavigationProps) => {
         if (!target) {
             setIsOpen(false);
         }
-    }
+    } */
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
           const target = event.target as HTMLElement;
@@ -40,7 +40,9 @@ if(Array.from(target.classList).join(' ')!="navigationItemFlexItem" && Array.fro
       }, [isOpen, setIsOpen]);
     
     return (
-        <div onClick={handleClick} className="navigationWindow"
+        <div 
+      //  onClick={handleClick} 
+        className="navigationWindow"
       
         >
           <div className="triangleWindow"></div>

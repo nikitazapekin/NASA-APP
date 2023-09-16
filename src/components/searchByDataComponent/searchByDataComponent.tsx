@@ -5,8 +5,11 @@ import SearchByYearOption from "./searchByYearOption";
 import "./searchByDataComponent.scss";
 import { useActions } from "../../hooks/useActions";
 import { useState } from "react";
-
-const SearchByDataComponent = () => {
+interface TodaysPictureProps {
+  isClicked: boolean,
+  setIsClicked:  React.Dispatch<React.SetStateAction<boolean>>;
+      }
+const SearchByDataComponent = ({isClicked, setIsClicked}: TodaysPictureProps) => {
   const { fetchPictures } = useActions();
   const [data, setData] = useState({
     year: "",
@@ -23,8 +26,7 @@ const SearchByDataComponent = () => {
     event.preventDefault();
     event.stopPropagation();
     console.log(data)
-  //  fetchPictures(data)
-   // fetchPictures(data); // Передаем data в fetchPictures
+    fetchPictures(data)
   };
 
   return (
@@ -37,6 +39,7 @@ const SearchByDataComponent = () => {
         type="text"
         list="yearList"
         autoComplete="off"
+        className="searchByDataComponentInput"
       />
       <datalist id="yearList">
         <SearchByYearOption />
@@ -49,6 +52,7 @@ const SearchByDataComponent = () => {
         type="text"
         list="monthList"
         autoComplete="off"
+        className="searchByDataComponentInput"
       />
       <datalist id="monthList">
         <SearchByMonthOption />
@@ -61,11 +65,15 @@ const SearchByDataComponent = () => {
         type="text"
         list="dayList"
         autoComplete="off"
+        className="searchByDataComponentInput"
       />
       <datalist id="dayList">
         <SearchByDayOption />
       </datalist>
-      <button onClick={searchFunction}>Search</button>
+      <button 
+      className="searchByDataComponentButton"
+      onClick={searchFunction}>Search</button>
+
     </form>
   );
 };

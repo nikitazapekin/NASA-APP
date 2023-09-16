@@ -5,21 +5,18 @@ import Footer from "../../components/footer/footer"
 import AchievementsBlock from "../../components/achievementsBlock/achievementsBlock"
 import { useActions } from "../../hooks/useActions"
 import { useEffect } from "react"
-//import { fetchAchievements } from "../../store/action-creator/achievements"
 import { useTypedSelectors } from "../../hooks/useTypedSelectors"
-import "./AchievementsPage.scss"
+import "./PicturesPage.scss"
+import { useState } from "react"
 import TodaysPicture from "../../components/todaysPicture/todaysPicture"
 const AchievementsPage =()=> {
-    //const {fetchAchievements, fetchUsers} =useActions()
-  // const {pictures, error, loading}=useTypedSelectors(state=> state.achievements)
-    useEffect(()=> {
-//fetchAchievements()
-    }, [])
+ const [isClicked, setIsClicked] =useState(false)
     return (
         <div className="achievementsPage">
         <Navigation />
-     <TodaysPicture /> 
-   {/*     <Footer /> */}
+<button onClick={()=>setIsClicked(true)} className="buttonThatAllowsToSearchByDate">Search by date</button>
+     <TodaysPicture isClicked={isClicked} setIsClicked={setIsClicked} /> 
+   {/*   <Footer /> */}
        
         </div>
     )

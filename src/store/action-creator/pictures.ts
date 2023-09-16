@@ -3,14 +3,24 @@
 import { Dispatch } from "redux"
 import axios from "axios"
 import { UserAction, UserActionTypes } from "../../types/achievements"
-
-
-export const fetchPictures = ()=> {
+import { months } from "../../utils/month"
+interface fetchPicturesTypes {
+year: string, 
+day: string,
+month: string,
+}
+export const fetchPictures = (data: fetchPicturesTypes)=> {
+    console.log(data)
+    let month=String(months.indexOf(data.month)+1)
+    let date =`${data.year}-${month.length==1 ? "0"+month : month}-${data.day.length==1 ? "0"+data.day : data.day}`
+    console.log(date)
     return  async (dispatch: Dispatch<UserAction>)=> {
         try {
             dispatch({type: UserActionTypes.FETCH_PHOTO})
-            const response = await axios.get('https://api.nasa.gov/planetary/apod?start_date=2015-09-07&end_date=2015-09-14&api_key=iDEMvxHddUvPeuGSIJPzGzRxWWlFxTsWtjz6Wg7v')
-       console.log(response)
+          //  const response = await axios.get(`https://api.nasa.gov/planetary/apod?start_date=2015-09-07&end_date=2015-09-14&api_key=iDEMvxHddUvPeuGSIJPzGzRxWWlFxTsWtjz6Wg7v`)
+       
+          const response = await axios.get(`https://api.nasa.gov/planetary/apod?start_date=${date}&end_date=${date}&api_key=iDEMvxHddUvPeuGSIJPzGzRxWWlFxTsWtjz6Wg7v`)
+          console.log(response)
             setTimeout(()=> {
                 dispatch({type: UserActionTypes.FETCH_PHOTO_SUCCESS, payload:response.data})
             }, 500)
