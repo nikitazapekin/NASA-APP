@@ -2,8 +2,6 @@
 
 import { Dispatch } from "redux"
 import axios from "axios"
-//import { UserAction, UserActionTypes } from "../../types/achievements"
-
 import { ObjectsNearEarthAction, ObjectsNearEarthActionTypes } from "../../types/objectsNearEarth"
 export const fetchObjectsNearEarth = ()=> {
     
