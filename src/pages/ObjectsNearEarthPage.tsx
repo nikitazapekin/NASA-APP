@@ -6,7 +6,7 @@ const ObjectsNearEarthPage =()=> {
         <>
         <Navigation />
 <h1 className="objectsNearEarthTitle">
-    Objects near Earth
+Impact Risk  оbjects  
 
 </h1>
  <ObjectsNearEarthTable />

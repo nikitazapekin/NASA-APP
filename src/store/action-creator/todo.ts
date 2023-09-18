@@ -13,7 +13,7 @@ export const fetchTodos = (page=1, limit=10 )=> {
                     _limit: limit,
 
                 }
-            })
+            } )
             setTimeout(()=> {
                 dispatch({type: TodoActionTypes.FETCH_TODOS_SUCCESS, payload: response.data})
 

@@ -28,6 +28,8 @@ const initialState: ObjectsNearEarthState= {
         }
     ]
   },
+  limit: 10,
+  page: 1,
     loading: false,
     error: null
 }
@@ -42,7 +44,8 @@ export const objectsNearEarthReducer = (state = initialState, action: ObjectsNea
   
       case ObjectsNearEarthActionTypes.FETCH_OBJECTS_NEAR_EARTH_ERROR:
         return { ...state, loading: false, error: action.payload, data: initialState.data };
-  
+        case ObjectsNearEarthActionTypes.SET_OBJECTS_NEAR_EARTH_PAGE:
+          return {...state, page: action.payload}
       default:
         return state;
     }

@@ -2,15 +2,12 @@
 export enum ObjectsNearEarthActionTypes {
     FETCH_OBJECTS_NEAR_EARTH='FETCH_OBJECTS_NEAR_EARTH',
     FETCH_OBJECTS_NEAR_EARTH_SUCCESS='FETCH_OBJECTS_NEAR_EARTH_SUCCESS',
-    FETCH_OBJECTS_NEAR_EARTH_ERROR='FETCH_OBJECTS_NEAR_EARTH_ERROR'
+    FETCH_OBJECTS_NEAR_EARTH_ERROR='FETCH_OBJECTS_NEAR_EARTH_ERROR',
+    SET_OBJECTS_NEAR_EARTH_PAGE = 'SET_OBJECTS_NEAR_EARTH_PAGE'
 }
 interface FetchObjectsNearEarthAction {
     type:ObjectsNearEarthActionTypes.FETCH_OBJECTS_NEAR_EARTH
 }
-
-
-
-
 
 interface FetchObjectsNearEarthSuccessAction {
     type: ObjectsNearEarthActionTypes.FETCH_OBJECTS_NEAR_EARTH_SUCCESS;
@@ -44,6 +41,12 @@ interface FetchObjectsNearEarthErrorAction {
     type: ObjectsNearEarthActionTypes.FETCH_OBJECTS_NEAR_EARTH_ERROR;
     payload: string;
 }
+
+
+interface SetObjectsNearEarthPage {
+  type: ObjectsNearEarthActionTypes.SET_OBJECTS_NEAR_EARTH_PAGE;
+  payload: number;
+}
 export interface ObjectsNearEarthState {
     data: {
       signature: {
@@ -70,7 +73,9 @@ export interface ObjectsNearEarthState {
     };
     loading: boolean;
     error: null | string;
+    page: number;
+    limit: number
   }
   
 
-export type ObjectsNearEarthAction = FetchObjectsNearEarthAction | FetchObjectsNearEarthErrorAction | FetchObjectsNearEarthSuccessAction
+export type ObjectsNearEarthAction = FetchObjectsNearEarthAction | FetchObjectsNearEarthErrorAction | FetchObjectsNearEarthSuccessAction | SetObjectsNearEarthPage

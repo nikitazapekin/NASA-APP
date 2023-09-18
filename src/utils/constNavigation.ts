@@ -1,1 +1,1 @@
-export const arrayOfNavigationConsts = ['Daily pictures', 'Objects near Earth', 'Space weather', 'Photos']
+export const arrayOfNavigationConsts = ['Daily pictures', 'Objects near Earth', 'Sattelities', 'Photos']

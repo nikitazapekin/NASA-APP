@@ -1,0 +1,31 @@
+.tableWrapper {
+    width:  100%;
+    height: auto;
+     background-color: #b5b0b0;
+     max-width: 90%;
+     position: relative;
+ border-radius: 20px;
+     margin: 0 auto;
+}
+.objectsNearEarthCount{
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding-right: 50px;
+} 
+.tableWithData {
+    width: 100%;
+    max-width: 90%;
+    margin: 0 auto;
+}
+.borderForTable {
+    border: 1px solid  black;
+    text-align: center;
+}
+.documentationOfObjectsNearEarth {
+    position: absolute;
+    left: 0;
+    padding-left: 50px;
+ cursor: pointer;
+    top: 0;
+}

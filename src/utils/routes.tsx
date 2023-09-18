@@ -1,17 +1,16 @@
 
 
 import {Route, Routes, Navigate}  from "react-router-dom"
-import {HOMEPAGE_ROUTE, SIGN_IN_ROUTE, SIGN_UP_ROUTE, ACHIEVEMENTS_ROUTE, PICTURES_ROUTE, OBJECTS_NEAR_EARTH_ROUTE} from "./consts"
+import {HOMEPAGE_ROUTE, SIGN_IN_ROUTE, SIGN_UP_ROUTE, ACHIEVEMENTS_ROUTE, PICTURES_ROUTE, 
+   OBJECTS_NEAR_EARTH_ROUTE, SATTELITIES_ROUTE, SATTELITIES_ID_ROUTE} from "./consts"
 import Homepage from "../pages/Homepage"
 import LoginPage from "../pages/LoginPage"
 import RegisterPage from "../pages/RegisterPage"
 import AchievementsPage from "../pages/AchievementsPage/PicturePage"
 import ObjectsNearEarthPage from "../pages/ObjectsNearEarthPage"
-//import AchievementsPage from "../pages/"
-//import  Homepage  from "../pages/homepage"
-//import SignIn from "../pages/signin"
-//import LoginComponent from "../components/loginComponent/loginComponent"
-//import SignUp from "../pages/signup"
+import SattelitiesPage from "../pages/SattelitiesPage"
+import SattelitiesIdPage from "../pages/SattelitiesIdPage"
+
 const publicRoutes=[
  {
     path: SIGN_UP_ROUTE,
@@ -31,10 +30,19 @@ const publicRoutes=[
     Component: AchievementsPage
  },
  {
-    // path: ACHIEVEMENTS_ROUTE,
     path: OBJECTS_NEAR_EARTH_ROUTE,
      Component: ObjectsNearEarthPage
   },
+
+  {
+   path: SATTELITIES_ROUTE,
+    Component: SattelitiesPage
+ },
+ {
+   path:  SATTELITIES_ID_ROUTE,
+   Component: SattelitiesIdPage
+
+}
 ]
 const privateRoutes =[
     {
@@ -59,6 +67,15 @@ const privateRoutes =[
     path: OBJECTS_NEAR_EARTH_ROUTE,
      Component: ObjectsNearEarthPage
   },
+  {
+   path: SATTELITIES_ROUTE,
+    Component: SattelitiesPage
+ },
+ {
+   path:  SATTELITIES_ID_ROUTE,
+   Component: SattelitiesIdPage
+
+}
  
 ]
 
