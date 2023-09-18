@@ -1,16 +1,59 @@
 
-//import { SattelitiesAction, SattelitiesActionTypes, SattelitiesState } from "../../types/sattelities";
 import { SattelitiesIdState, SattelitiesIdAction, SattelitiesIdActionTypes } from "../../types/sattelititiesId";
 const initialState: SattelitiesIdState= {
+
   data: {
-   // payload: {
+    "@context": "",
+    "@id": "",
+    "@type":"" ,
+    tle: {
+        "@id": "",
+        "@type":"" ,
+        satelliteId: 0 ,
+    name: "",
+        date:"",
+        line1:"" ,
+        line2:""
+    },
+    algorithm:"" ,
+    vector: {
+        reference_frame:"" ,
+        position: {
+            x: 0  ,
+            y:  0 ,
+            z: 0 ,
+            r:   0,
+            unit: ""
+        },
+        velocity: {
+            x:  0 ,
+            y:  0,
+            z: 0 ,
+            r: 0  ,
+            unit: ""
+        }
+    },
+    geodetic: {
+        latitude:  0,
+        longitude: 0  ,
+        altitude:  0 
+    },
+    parameters: {
+        date: "" ,
+        satelliteId:  0
+    }
+},
+
+
+
+  /*data: {
         "@context": "",
 "@id": "",
 "@type": "",
 totalItems:0,
 member:[]
 
-},
+}, */
    limit: 10,
   page: 1,
     loading: false,

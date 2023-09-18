@@ -2,7 +2,6 @@
 import { SattelitiesAction, SattelitiesActionTypes, SattelitiesState } from "../../types/sattelities";
 const initialState: SattelitiesState= {
   data: {
-   // payload: {
         "@context": "",
 "@id": "",
 "@type": "",
