@@ -9,7 +9,8 @@
 .favouriteSattelitiesComponent {
     max-width: 90%;
     width: 100%;
-    background-color: antiquewhite;
+    background-color: #1a1c31;
+  //  background-color: antiquewhite;
     height: auto;
     position: relative;
     top: 200px;
@@ -18,4 +19,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    color: #ffffffb9;
+    border-radius: 10px;
 }

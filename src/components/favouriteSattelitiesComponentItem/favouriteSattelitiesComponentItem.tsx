@@ -16,9 +16,8 @@ const FavouriteSattelitiesComponentItem =({item}: FavouriteSattelitiesComponentI
     return  (
         <div className="favouriteSattelitiesComponentItem">
           <p className="favouriteSattelitiesComponentItemTitle">
-         <Link style={{textDecoration: "none"}} to={`/sattelities/${item.satelliteId}`}>
+         <Link style={{textDecoration: "none", color: "#ffffffb9"}} to={`/sattelities/${item.satelliteId}`}>
               {item.name}
-             
               </Link>
             </p>
         </div>
