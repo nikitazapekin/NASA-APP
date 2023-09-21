@@ -1,9 +1,51 @@
 import { Link } from "react-router-dom"
 import "./loginComponent.scss"
+import axios from "axios";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../context/AuthContext";
 const LoginComponent=()=> {
+  const auth = useContext(AuthContext)
+  const [form, setForm] = useState({
+    email: '', password: ''
+  })
+
+  const registerHandler = async () => {
+    console.log(1122)
+        try {
+     
+      axios.post('/login', {email: form.email, password: form.password })
+      .then(function (response) {
+        console.log('Успешно отправлено!', response.data);
+      })
+      .catch(function (error) {
+        console.error('Произошла ошибка:', error);
+      });
+    
+        } catch (e) {}
+      }
+
+  const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setForm({ ...form, [event.target.name]: event.target.value })
+  }
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         event.stopPropagation();
+        console.log(1234)
+
+
+
+
+        try {
+     
+          axios.post('/api/auth/login', {email: form.email, password: form.password })
+          .then(function (response) {
+            console.log('Успешно отправлено!', response.data);
+          })
+          .catch(function (error) {
+            console.error('Произошла ошибка:', error);
+          });
+        
+            } catch (e) {}
       };
     return (
         <>
@@ -16,6 +58,8 @@ const LoginComponent=()=> {
           className="registrationInput"
           type="text"
           placeholder=" "
+          onChange={changeHandler}
+          name="email"
         />
         <div className="registrationCut cut-short"></div>
         <label htmlFor="registrationEmail" className="registrationPlaceholder">
@@ -29,6 +73,8 @@ const LoginComponent=()=> {
           id="registrationEmail"
           className="registrationInput"
           type="text"
+          onChange={changeHandler}
+          name="password"
           placeholder=" "
         />
         <div className="registrationCut cut-short"></div>
@@ -39,7 +85,7 @@ const LoginComponent=()=> {
 
 
 
-      <button type="submit" className="registrationSubmit">
+      <button onClick={()=>handleSubmit} type="submit" className="registrationSubmit">
         submit
       </button>
       <Link style={{ textDecoration: "none" }} to="/signup">
