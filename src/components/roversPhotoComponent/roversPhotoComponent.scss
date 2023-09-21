@@ -1,0 +1,21 @@
+.roversPhotoComponent {
+    max-width: 90%;
+    height: auto;
+    width: 100%;
+    padding: 20px;
+    background-color: #1a1c31;
+    color: #ffffffb9;
+    margin: 0 auto;
+    position: relative;
+    border-radius: 10px;
+    top: 100px;
+}
+.roversPhotoComponentWrapper {
+    display: grid;
+    grid-template-columns: repeat(4,200px);
+    grid-template-rows: repeat(auto, 150px);
+    justify-content: center;
+}
+.roversPhotoComponentItem {
+    cursor: pointer;
+}

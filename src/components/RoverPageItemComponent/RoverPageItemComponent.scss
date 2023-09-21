@@ -1,0 +1,22 @@
+.roverPageItemComponent {
+    max-width: 90%;
+    height: auto;
+    width: 100%;
+    padding: 20px;
+    background-color: #1a1c31;
+    color: #ffffffb9;
+    margin: 0 auto;
+    position: relative;
+    border-radius: 10px;
+    top: 100px;
+}
+.roverPageItemComponentWrapper {
+    display: grid;
+    grid-template-columns: repeat(4,200px);
+    grid-template-rows: repeat(auto, 150px);
+    justify-content: center;
+}
+.roverPageItemComponentItem {
+cursor: pointer;
+padding: 20px;
+}

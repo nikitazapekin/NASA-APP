@@ -27,9 +27,20 @@ if(array[2]!=undefined && array[2]!=undefined){
 }
 
 }, [data.tle.line1])
-    useEffect(()=> {
+   /* useEffect(()=> {
 fetchSattelitiesId(id)
-    }, [])
+    }, []) */
+
+
+
+    useEffect(() => {
+      fetchSattelitiesId(id);
+      const intervalId = setInterval(() => {
+        fetchSattelitiesId(id);
+      }, 15000);
+      return () => clearInterval(intervalId);
+    }, []);
+  
   let  numb=5
   let geodeticNum =3
     return  (
@@ -146,43 +157,4 @@ export default SattelitiesIdComponent
 
 //https://developers.google.com/maps/documentation/javascript/using-typescript
 //npm install @types/googlemaps --save-dev
-
-
-
-
-
- /* function initMap(): void {
-    const myLatLng = { lat: -25.363, lng: 131.044 };
-  
-    const map = new google.maps.Map(
-      document.getElementById("map") as HTMLElement,
-      {
-        zoom: 4,
-        center: myLatLng,
-      }
-    );
-  
-    new google.maps.Marker({
-      position: myLatLng,
-      map,
-      title: "Hello World!",
-    });
-  }
-  
-  declare global {
-    interface Window {
-      initMap: () => void;
-    }
-  }
-  window.initMap = initMap;
-
-  
-
-useEffect(()=> {
-  const myLatLng = { lat: 45.363, lng: 45.044 };
-  const map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 4,
-    center: myLatLng,
-  });
-}, []) */
 

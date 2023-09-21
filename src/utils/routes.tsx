@@ -1,8 +1,10 @@
 
 
 import {Route, Routes, Navigate}  from "react-router-dom"
-import {HOMEPAGE_ROUTE, SIGN_IN_ROUTE, SIGN_UP_ROUTE, ACHIEVEMENTS_ROUTE, PICTURES_ROUTE, 
-   OBJECTS_NEAR_EARTH_ROUTE, SATTELITIES_ROUTE, SATTELITIES_ID_ROUTE} from "./consts"
+import {HOMEPAGE_ROUTE, SIGN_IN_ROUTE, SIGN_UP_ROUTE, PICTURES_ROUTE, 
+   OBJECTS_NEAR_EARTH_ROUTE, SATTELITIES_ROUTE, SATTELITIES_ID_ROUTE, ROVER_PHOTO_ROUTE, 
+ROVER_PHOTO_ITEM_ROUTE, ROVER_PHOTO_ITEM_CAMERA_ROUTE
+} from "./consts"
 import Homepage from "../pages/Homepage"
 import LoginPage from "../pages/LoginPage"
 import RegisterPage from "../pages/RegisterPage"
@@ -10,7 +12,9 @@ import AchievementsPage from "../pages/AchievementsPage/PicturePage"
 import ObjectsNearEarthPage from "../pages/ObjectsNearEarthPage"
 import SattelitiesPage from "../pages/SattelitiesPage"
 import SattelitiesIdPage from "../pages/SattelitiesIdPage"
-
+import RoversPage from "../pages/roversPage"
+import RoversPageItem from "../pages/roversPageItem"
+import RoverPageItemComponentItemPage from "../components/roverPageItemComponentItemPage/roverPageItemComponentItemPage"
 const publicRoutes=[
  {
     path: SIGN_UP_ROUTE,
@@ -25,7 +29,6 @@ const publicRoutes=[
     Component: LoginPage
  },
  {
-   // path: ACHIEVEMENTS_ROUTE,
    path: PICTURES_ROUTE,
     Component: AchievementsPage
  },
@@ -42,6 +45,20 @@ const publicRoutes=[
    path:  SATTELITIES_ID_ROUTE,
    Component: SattelitiesIdPage
 
+}, 
+{
+   path:  ROVER_PHOTO_ROUTE,
+   Component: RoversPage
+
+},
+{
+   path: ROVER_PHOTO_ITEM_ROUTE,
+   Component: RoversPageItem
+
+}, 
+{
+   path: ROVER_PHOTO_ITEM_CAMERA_ROUTE,
+   Component: RoverPageItemComponentItemPage
 }
 ]
 const privateRoutes =[
@@ -59,11 +76,9 @@ const privateRoutes =[
  },
  {
     path: PICTURES_ROUTE,
-  //  path: ACHIEVEMENTS_ROUTE,
     Component: AchievementsPage
  },
  {
-    // path: ACHIEVEMENTS_ROUTE,
     path: OBJECTS_NEAR_EARTH_ROUTE,
      Component: ObjectsNearEarthPage
   },
@@ -75,8 +90,21 @@ const privateRoutes =[
    path:  SATTELITIES_ID_ROUTE,
    Component: SattelitiesIdPage
 
+},
+{
+   path:  ROVER_PHOTO_ROUTE,
+   Component: RoversPage
+
+},
+{
+   path:  ROVER_PHOTO_ROUTE,
+   Component: RoversPage
+
+},
+{
+   path: ROVER_PHOTO_ITEM_CAMERA_ROUTE,
+   Component: RoverPageItemComponentItemPage
 }
- 
 ]
 
 const AppRoutes=()=> {

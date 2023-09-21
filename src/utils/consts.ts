@@ -6,3 +6,7 @@ export const PICTURES_ROUTE="/Daily pictures"
 export const OBJECTS_NEAR_EARTH_ROUTE="/Objects near Earth"
 export const SATTELITIES_ROUTE="/Sattelities"
 export const SATTELITIES_ID_ROUTE="/sattelities/:id"
+export const ROVER_PHOTO_ROUTE="/Rover photo"
+export const ROVER_PHOTO_ITEM_ROUTE="/Rover photo/:id"
+export const ROVER_PHOTO_ITEM_CAMERA_ROUTE ="/Rover photo/:id/:idd"
+//RoverPageItemComponentItemPage

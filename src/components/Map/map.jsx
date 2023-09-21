@@ -6,10 +6,10 @@ import Map, {NavigationControl, Marker} from 'react-map-gl';
 import maplibregl from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import Sattelity from "../../asserts/sattelity.png"
-
+import "./map.scss"
 function SattelitiesMap({latitude, longitude} ) {
   return (
-    <div className="App">
+    <div className="map">
     
       <Map mapLib={maplibregl} 
         initialViewState={{
