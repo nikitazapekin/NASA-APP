@@ -1,10 +1,13 @@
 import LoginComponent from "../components/loginComponent/loginComponent"
 import Navigation from "../components/navigation/navigation"
-
-const LoginPage =()=> {
+interface LoginProps {
+    isAuthenticated: boolean;
+  }
+  
+const LoginPage =({isAuthenticated}: LoginProps)=> {
     return (
         <>
-        <Navigation />
+        <Navigation isAuthenticated={isAuthenticated} />
      <LoginComponent />
         </>
     )

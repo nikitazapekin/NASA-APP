@@ -75,18 +75,7 @@ margin-left: 30px;
     cursor: pointer;
     background-color: rgb(103, 139, 240);
 }
-
-
-
-
-
-
-
 .searchBoxZ {
- //   position: absolute;
-  //  top: 50%;
-   // left: 50%;
- // transform:  translate(-50%,50%);
     background: #2f3640;
    // height: 40px;
     border-radius: 40px;
@@ -148,4 +137,15 @@ margin-left: 30px;
 }
 .navigationItem:nth-child(3){
    margin-right: auto;
+}
+.navigationItemIcon {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+.navigationItemPictures{
+    width: 150px;
+    display: flex;
+    justify-content: space-between;
+    margin-right: 50px;
 }

@@ -1,10 +1,13 @@
 import Navigation from "../components/navigation/navigation"
 import Footer from "../components/footer/footer"
-
-const Homepage=()=> {
+interface HomepageProps {
+    isAuthenticated: boolean;
+  }
+  
+const Homepage=({isAuthenticated}: HomepageProps)=> {
     return (
         <>
-        <Navigation />
+        <Navigation isAuthenticated={isAuthenticated} />
         <Footer />
         </>
     )

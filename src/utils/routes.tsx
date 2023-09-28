@@ -3,7 +3,7 @@
 import {Route, Routes, Navigate}  from "react-router-dom"
 import {HOMEPAGE_ROUTE, SIGN_IN_ROUTE, SIGN_UP_ROUTE, PICTURES_ROUTE, 
    OBJECTS_NEAR_EARTH_ROUTE, SATTELITIES_ROUTE, SATTELITIES_ID_ROUTE, ROVER_PHOTO_ROUTE, 
-ROVER_PHOTO_ITEM_ROUTE, ROVER_PHOTO_ITEM_CAMERA_ROUTE
+ROVER_PHOTO_ITEM_ROUTE, ROVER_PHOTO_ITEM_CAMERA_ROUTE, ACCOUNT_ROUTE
 } from "./consts"
 import Homepage from "../pages/Homepage"
 import LoginPage from "../pages/LoginPage"
@@ -15,11 +15,12 @@ import SattelitiesIdPage from "../pages/SattelitiesIdPage"
 import RoversPage from "../pages/roversPage"
 import RoversPageItem from "../pages/roversPageItem"
 import RoverPageItemComponentItemPage from "../components/roverPageItemComponentItemPage/roverPageItemComponentItemPage"
+import AccountPage from "../pages/AccountPage"
 const publicRoutes=[
  {
     path: SIGN_UP_ROUTE,
     Component: RegisterPage
- },
+ }, 
  {
    path: HOMEPAGE_ROUTE,
    Component: Homepage
@@ -27,7 +28,7 @@ const publicRoutes=[
 {
     path: SIGN_IN_ROUTE,
     Component: LoginPage
- },
+ }, 
  {
    path: PICTURES_ROUTE,
     Component: AchievementsPage
@@ -59,21 +60,25 @@ const publicRoutes=[
 {
    path: ROVER_PHOTO_ITEM_CAMERA_ROUTE,
    Component: RoverPageItemComponentItemPage
-}
+},
+/*{
+   path: ACCOUNT_ROUTE,
+   Component: AccountPage
+} */
 ]
 const privateRoutes =[
     {
         path: HOMEPAGE_ROUTE,
         Component: Homepage
      },
-     {
+   /* {
       path: SIGN_UP_ROUTE,
       Component: RegisterPage
    },
    {
     path: SIGN_IN_ROUTE,
     Component: LoginPage
- },
+ }, */ 
  {
     path: PICTURES_ROUTE,
     Component: AchievementsPage
@@ -104,39 +109,32 @@ const privateRoutes =[
 {
    path: ROVER_PHOTO_ITEM_CAMERA_ROUTE,
    Component: RoverPageItemComponentItemPage
-}
+},
+{
+   path: ACCOUNT_ROUTE,
+   Component: AccountPage
+} 
 ]
-
-const AppRoutes=()=> {
+interface AppRoutesProps {
+isAuthenticated: boolean
+}
+const AppRoutes=({isAuthenticated}: AppRoutesProps)=> {
     const user=false
-    return user ?  
+    return isAuthenticated ?  
     (
         <Routes>
+{privateRoutes.map(({path, Component})=>( <Route  key={path} path={path} element={<Component isAuthenticated={isAuthenticated}  />} />)
 
-{privateRoutes.map(({path, Component})=>( <Route  key={path} path={path} element={<Component  />} />)
-
-    
 )}
-
-
-
-
 <Route path="*" element={<Navigate replace to={HOMEPAGE_ROUTE} />} />  
-
-
-
-
-
         </Routes>
     )
     :
     (
         <Routes>
-{publicRoutes.map(({path, Component})=> (<Route   key={path} path={path} element={<Component/>}  />)
+{publicRoutes.map(({path, Component})=> (<Route   key={path} path={path} element={<Component isAuthenticated={isAuthenticated}/>}  />)
 )}
-
-<Route path="*" element={<Navigate replace to={HOMEPAGE_ROUTE} />} /> 
-    
+<Route path="*" element={<Navigate replace to={HOMEPAGE_ROUTE} />} />  
         </Routes>
     )
 };

@@ -1,0 +1,32 @@
+.accountComponentItem {
+  background-color: #cac7c7;
+    width: 100%;
+    max-width: 90%;
+    height: 600px;
+    position: relative;
+  margin: 0 auto;
+  top: 50px;
+  border-radius: 20px;
+}
+.accountComponentItemBar {
+    width: 300px;
+    height: 100%;
+    display: block;
+    position: relative;
+    background-color: darkslateblue;
+   border-top-left-radius: 20px;
+   border-bottom-left-radius: 20px;
+   border-right: 2px solid black;
+
+}
+.accountComponentItemBarItem {
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+    color: #fff;
+    height: auto
+}
+.accountComponentItemBarItem:hover {
+background-color: rgb(183, 183, 4);
+}

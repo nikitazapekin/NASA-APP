@@ -1,11 +1,13 @@
 import {createContext} from 'react'
 
-function noop() {}
+function noop(token, userId) {}
 
 export const AuthContext = createContext({ // получаем настройки аудентификации
   token: null,
   userId: null,
   login: noop,
   logout: noop,
-  isAuthenticated: false
+  isAuthenticated: false,
+  
+ 
 })

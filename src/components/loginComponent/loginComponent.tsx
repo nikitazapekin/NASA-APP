@@ -1,28 +1,15 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import "./loginComponent.scss"
 import axios from "axios";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 const LoginComponent=()=> {
+  const navigate=useNavigate()
   const auth = useContext(AuthContext)
   const [form, setForm] = useState({
     email: '', password: ''
   })
 
-  const registerHandler = async () => {
-    console.log(1122)
-        try {
-     
-      axios.post('/login', {email: form.email, password: form.password })
-      .then(function (response) {
-        console.log('Успешно отправлено!', response.data);
-      })
-      .catch(function (error) {
-        console.error('Произошла ошибка:', error);
-      });
-    
-        } catch (e) {}
-      }
 
   const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, [event.target.name]: event.target.value })
@@ -31,15 +18,14 @@ const LoginComponent=()=> {
         event.preventDefault();
         event.stopPropagation();
         console.log(1234)
-
-
-
-
         try {
      
           axios.post('/api/auth/login', {email: form.email, password: form.password })
           .then(function (response) {
             console.log('Успешно отправлено!', response.data);
+         //   useNavigate('/account')
+         auth.login(response.data.token, response.data.userId)
+         navigate(`/account/${response.data.firstName}/${response.data.secondName}`)
           })
           .catch(function (error) {
             console.error('Произошла ошибка:', error);
@@ -66,8 +52,6 @@ const LoginComponent=()=> {
           Email
         </label>
       </div>
-
-
      <div className="input-container ic2">
         <input
           id="registrationEmail"
@@ -82,9 +66,6 @@ const LoginComponent=()=> {
          Password
         </label>
       </div>
-
-
-
       <button onClick={()=>handleSubmit} type="submit" className="registrationSubmit">
         submit
       </button>

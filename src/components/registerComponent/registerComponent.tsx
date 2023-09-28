@@ -12,7 +12,7 @@ interface formTypes {
   secondName: string,
    email: string, 
    password: string
-}
+} 
 const RegisterComponent = () => {
   const auth = useContext(AuthContext)
   const {loading, request, error, clearError} = useHttp()
@@ -50,14 +50,13 @@ const RegisterComponent = () => {
   const registerHandler = async () => {
 console.log(1122)
     try {
-    //  axios.post('http://localhost:3000/test', "sss")
-  //  axios.post('/api/auth/register', {email: form.email, password: form.password })
   axios.post('/register', {email: form.email, password: form.password })
   .then(function (response) {
     console.log('Успешно отправлено!', response.data);
   })
   .catch(function (error) {
-    console.error('Произошла ошибка:', error);
+    console.error('Произошла ошибка:', error.message);
+  
   });
 
     } catch (e) {}
@@ -108,9 +107,6 @@ console.log(1122)
           Email
         </label>
       </div>
-
-
-   
       <div className="input-container ic2">
         <input
            onChange={changeHandler}
@@ -136,7 +132,7 @@ console.log(1122)
       </Link>
 
 
-      <button style={{position: "absolute", top: "10px"}} onClick={()=> console.log(form)}>sss</button>
+ 
     </form>
   );
 };

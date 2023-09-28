@@ -5,11 +5,15 @@ import { useTypedSelectors } from "../hooks/useTypedSelectors"
 
 import FavouriteSattelitiesComponent from "../components/favouriteSattelitiesComponent/favouriteSattelitiesComponent"
 import SattelitiesMap from "../components/Map/map"
-const SattelitiesPage =()=> {
+interface SattelitiesPageProps {
+    isAuthenticated: boolean;
+  }
+  
+const SattelitiesPage =({isAuthenticated}: SattelitiesPageProps)=> {
   
     return  (
         <>
-        <Navigation />
+        <Navigation  isAuthenticated={isAuthenticated}/>
         <FavouriteSattelitiesComponent />
 
         </>

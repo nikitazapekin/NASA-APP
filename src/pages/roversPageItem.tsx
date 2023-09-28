@@ -1,11 +1,15 @@
 import RoverPageItemComponent from "../components/RoverPageItemComponent/roverPageItemComponent"
 import Navigation from "../components/navigation/navigation"
 import { useParams } from "react-router"
-const RoversPageItem =()=> {
+interface RoversPageItemProps {
+    isAuthenticated: boolean;
+  }
+  
+const RoversPageItem =({isAuthenticated}: RoversPageItemProps)=> {
     const {id} =useParams()
     return (
         <>
-        <Navigation />
+        <Navigation isAuthenticated={isAuthenticated} />
 <RoverPageItemComponent id={id} />
         </>
     )

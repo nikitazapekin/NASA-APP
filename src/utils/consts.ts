@@ -9,4 +9,5 @@ export const SATTELITIES_ID_ROUTE="/sattelities/:id"
 export const ROVER_PHOTO_ROUTE="/Rover photo"
 export const ROVER_PHOTO_ITEM_ROUTE="/Rover photo/:id"
 export const ROVER_PHOTO_ITEM_CAMERA_ROUTE ="/Rover photo/:id/:idd"
+export const ACCOUNT_ROUTE ="/account/:id/:idd"
 //RoverPageItemComponentItemPage

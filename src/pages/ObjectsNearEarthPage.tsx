@@ -1,10 +1,13 @@
 import Navigation from "../components/navigation/navigation"
 import ObjectsNearEarthTable from "../components/objectsNearEarthTable/objectsNearEarthTable"
-
-const ObjectsNearEarthPage =()=> {
+interface ObjectsNearEarthProps {
+    isAuthenticated: boolean;
+  }
+  
+const ObjectsNearEarthPage =({isAuthenticated}: ObjectsNearEarthProps)=> {
     return (
         <>
-        <Navigation />
+        <Navigation isAuthenticated={isAuthenticated} />
 <h1 className="objectsNearEarthTitle">
 Impact Risk  оbjects  
 

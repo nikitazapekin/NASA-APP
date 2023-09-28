@@ -2,15 +2,21 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import AppRoutes from './utils/routes';
-import SattelitiesMap from './components/Map/map';
-
-
+import { useAuth } from './hooks/auth.hook';
+import { AuthContext } from './context/AuthContext';
 function App() {
+  const {token, login, logout, userId}= useAuth()
+  const isAuthenticated = !!token
   return (
   <>
-   <AppRoutes /> 
+     <AuthContext.Provider value={{
+      token, login, logout, userId, isAuthenticated, 
+    }}>
+   <AppRoutes isAuthenticated={isAuthenticated} /> 
 
 
+   <button onClick={()=>console.log(isAuthenticated)}>auth</button>
+    </AuthContext.Provider>
  </>
   );
 }

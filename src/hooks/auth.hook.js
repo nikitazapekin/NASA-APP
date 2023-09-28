@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router'
 const storageName = 'userData'
 
 export const useAuth = () => {
-  const navigate=useNavigate()
+//  const navigate=useNavigate()
   const [token, setToken] = useState(null)
   const [ready, setReady] = useState(false)
   const [userId, setUserId] = useState(null)
@@ -11,7 +11,7 @@ export const useAuth = () => {
   const login = useCallback((jwtToken, id) => {
     setToken(jwtToken)
     setUserId(id)
-navigate('/create')
+//navigate('/create')
     localStorage.setItem(storageName, JSON.stringify({
       userId: id, token: jwtToken
     }))

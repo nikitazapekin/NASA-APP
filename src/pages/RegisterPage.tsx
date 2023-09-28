@@ -1,10 +1,16 @@
 import Navigation from "../components/navigation/navigation";
 import RegisterComponent from "../components/registerComponent/registerComponent";
-const RegisterPage=()=> {
+import Toast from "../components/toast/toast";
+interface RegisterProps {
+    isAuthenticated: boolean;
+  }
+  
+const RegisterPage=({isAuthenticated}: RegisterProps)=> {
     return (
         <>
-        <Navigation />
+        <Navigation isAuthenticated={isAuthenticated} />
         <RegisterComponent />
+        <Toast />
         </>
     )
 }

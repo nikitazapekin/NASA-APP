@@ -14,7 +14,11 @@ import AllDailyPicturesItem from "../../components/allDailyPicturesItem/allDaily
 import PanelForDailyPictureSearch from "../../components/panelForDailyPictureSearch/panelForDailyPictureSearch"
 import SearchByDataMonth from "../../components/searchByMonthComponent/searchByMonthComponent"
 import Spinner from 'react-bootstrap/Spinner';
-const AchievementsPage =()=> {
+interface AchievementsProps {
+  isAuthenticated: boolean;
+}
+
+const AchievementsPage =({isAuthenticated}: AchievementsProps)=> {
  const [isClicked, setIsClicked] =useState(false)
  const [isClickedMonth, setIsClickedMonth]=useState(false)
  const { fetchAllDailyPictures} = useActions();
@@ -25,7 +29,7 @@ useEffect(()=> {
       }, [limitBefore])
     return (
         <div className="achievementsPage">
-        <Navigation />
+        <Navigation isAuthenticated={isAuthenticated} />
 <PanelForDailyPictureSearch
  isClicked={isClicked} 
  setIsClicked={setIsClicked} 

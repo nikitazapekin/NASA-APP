@@ -5,7 +5,7 @@ const RoverPageItemComponentItemPage =()=> {
     const {id, idd} =useParams()
     return (
         <>
-        <Navigation />
+      {/*  <Navigation /> */}
         {id}
         {idd}
         </>
