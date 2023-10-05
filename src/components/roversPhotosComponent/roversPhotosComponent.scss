@@ -1,0 +1,49 @@
+.roversPhotosComponent{
+    margin: 0 auto;
+    max-width: 90%;
+    width: 100%;
+    background-color: #1a1c31;
+    color: #ffffffb9;
+    top: 50px;
+    position: relative;
+    height: 600px;
+    overflow-y: scroll;
+    border-radius: 20px;
+    .roversPhotosComponentTitle {
+        font-size: 32px;
+        padding: 20px;
+    position: relative;
+    }
+    .roverBlog {
+        max-width: 90%;
+        width: 100%;
+        border: 2px solid #ffffffb9;
+    }
+}
+.searchRoversPhotoBtn {
+  
+ position: absolute;
+ left: 50%;
+ transform: translateX(-50%);
+    top: 280px;
+    width: 100%;
+    max-width: 80%;
+    color: #ffffffb9;
+     
+    text-align: center;
+    background-color: dimgray;
+    height: 40px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+ 
+font-size: 30px;
+    cursor: pointer;
+}
+.isEmptyPhotos {
+    position: relative;
+    display: flex;
+    top: 200px;
+    font-size: 40px;
+  justify-content: center;
+}

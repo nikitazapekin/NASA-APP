@@ -1,0 +1,22 @@
+.roversPhotosComponentItem {
+    max-width: 90%;
+    width: 100%;
+    margin: 0 auto;
+    height: auto;
+    position: relative;
+    margin-bottom: 20px;
+}
+.roversPhotosComponentItemImage {
+    width: 100%;
+    height: auto;
+}
+.roversPhotosComponentItemTitle {
+    position: absolute;
+   right: 0;
+   top: -20px
+
+}
+.roversRenderPhotos {
+    position: relative;
+    top: 100px
+}

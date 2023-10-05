@@ -5,17 +5,14 @@ import AppRoutes from './utils/routes';
 import { useAuth } from './hooks/auth.hook';
 import { AuthContext } from './context/AuthContext';
 function App() {
-  const {token, login, logout, userId}= useAuth()
+  const {token, login, logout, userId, firstName, secondName}= useAuth()
   const isAuthenticated = !!token
   return (
   <>
      <AuthContext.Provider value={{
-      token, login, logout, userId, isAuthenticated, 
+      token: null, login, logout, userId: null, isAuthenticated,  firstName: null, secondName: null
     }}>
    <AppRoutes isAuthenticated={isAuthenticated} /> 
-
-
-   <button onClick={()=>console.log(isAuthenticated)}>auth</button>
     </AuthContext.Provider>
  </>
   );

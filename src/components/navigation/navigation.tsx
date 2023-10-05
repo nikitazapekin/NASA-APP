@@ -8,12 +8,20 @@ import Notification from "../../asserts/not.png"
 import User from "../../asserts/us.png"
 import { useContext } from "react"
 import { AuthContext } from "../../context/AuthContext"
+import { useRef } from "react"
 interface NavigationProps {
 isAuthenticated: boolean
 }
 const Navigation = ({isAuthenticated}: NavigationProps)=> {
   const auth = useContext(AuthContext)
-  console.log(auth)
+ 
+  const [isSearchActive, setIsSearchActive] = useState(false); 
+  const searchForm=(event: React.ChangeEvent<HTMLInputElement>)=> {
+    if(event.target.name=="search"){
+      setIsSearchActive(event.target.value.length > 0); 
+  console.log(event.target.value.length)
+}
+  }
     const handleClick=()=> {
       if(isOpen==true){
         setIsOpen(false)
@@ -53,11 +61,28 @@ const Navigation = ({isAuthenticated}: NavigationProps)=> {
 
 <div className="searchBoxZ">
 
-<input className="searchInputZ"type="text" name="" placeholder="Search" />
-<button className="searchButtonZ" >
+<input 
+className={`searchInputZ ${isSearchActive ? 'active' : ''}`}
+type="text" name="search" placeholder="Search"  
+ 
+
+
+onChange={ searchForm} />
+<button className="searchButtonZ"   >
         <img src={Search} className="tyu" />
 </button>
 </div>
+ 
+
+
+
+
+
+
+
+
+
+
 
 
 </div>
@@ -77,7 +102,10 @@ const Navigation = ({isAuthenticated}: NavigationProps)=> {
   <div className="navigationItem navigationItemPictures">
 <img className="navigationItemIcon" alt="icon"  src={ChatIcon} />
 <img className="navigationItemIcon" alt="icon"  src={Notification} />
+<Link to={`/account/${auth.firstName}/${auth.secondName}`}>
+
 <img className="navigationItemIcon" alt="icon"  src={User} />
+</Link>
   </div>
   </>
 )

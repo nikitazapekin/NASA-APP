@@ -101,11 +101,16 @@ const privateRoutes =[
    Component: RoversPage
 
 },
-{
+/*{
    path:  ROVER_PHOTO_ROUTE,
    Component: RoversPage
 
-},
+}, */
+{
+   path: ROVER_PHOTO_ITEM_ROUTE,
+   Component: RoversPageItem
+
+}, 
 {
    path: ROVER_PHOTO_ITEM_CAMERA_ROUTE,
    Component: RoverPageItemComponentItemPage

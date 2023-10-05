@@ -5,14 +5,17 @@ import { useTypedSelectors } from "../../hooks/useTypedSelectors";
 import { useEffect } from "react";
 import "./roversPhotoComponent.scss"
 import { Link } from "react-router-dom";
+import Spinner from "../spinner/spinner";
 const RoversPhotoComponent = () => {
   const { data, loading, error } = useTypedSelectors((state) => state.RoversReducer);
+  console.log(data)
   const { fetchRovers } = useActions();
-
   useEffect(() => {
     fetchRovers();
   }, []);
-
+  if(loading){
+    return <Spinner />
+  }
   return (
     <div className="roversPhotoComponent">
       <h1 className="roversPhotoComponentTitle">Rovers</h1>
