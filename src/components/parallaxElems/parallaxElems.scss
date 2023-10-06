@@ -1,0 +1,98 @@
+
+
+
+.container-body {
+    //height: 9000px;
+    height: auto
+  }
+  .box {
+    width: 100px;
+    height: 100px;
+   
+   position: absolute;
+   z-index: 111111;
+   // background-color: hotpink;
+    margin-top: 90rem;
+    color: white;
+
+
+  //  position: relative;
+    z-index: 1111;
+    position: absolute;
+    font-size: 20px;
+  }
+  .box2 {
+    width: 100px;
+    height: 100px;
+    background-color: cornflowerblue;
+    margin-top: -5rem;
+    color: white;
+    font-size: 20px;
+ //   position: relative;
+ position: absolute;
+    z-index: 111;
+  }
+  .rocket {
+    transform: rotate(120deg);
+    z-index: 11111;
+    position: absolute;
+  }
+
+  .moonEffect {
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    z-index: 111;
+    overflow: hidden;
+  }
+  .parallaxMoon {
+    width: 400px;
+    height: 400px;
+  }
+  .blackHoleEffect {
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    z-index: 111;
+    overflow: hidden;
+  }
+  .black-hole {
+    width: 160px;
+    height: 160px;
+    animation: hole 0.4s linear infinite;
+    user-select: none;
+  }
+  @keyframes hole {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+  }
+
+  .homepageAboutBox {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+z-index: 11111;
+.homepageAboutBoxForm{
+    width: 300px;
+    height: 100px;
+    background-color: rgb(108, 97, 79);
+    position: absolute;
+}
+  }
+  .asteroid  {
+    width: 600px;
+    height: 400px;
+    //animation: asteroid 36s linear infinite;
+  }
+  @keyframes asteroid {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+  }
