@@ -3,7 +3,8 @@
 import {Route, Routes, Navigate}  from "react-router-dom"
 import {HOMEPAGE_ROUTE, SIGN_IN_ROUTE, SIGN_UP_ROUTE, PICTURES_ROUTE, 
    OBJECTS_NEAR_EARTH_ROUTE, SATTELITIES_ROUTE, SATTELITIES_ID_ROUTE, ROVER_PHOTO_ROUTE, 
-ROVER_PHOTO_ITEM_ROUTE, ROVER_PHOTO_ITEM_CAMERA_ROUTE, ACCOUNT_ROUTE
+ROVER_PHOTO_ITEM_ROUTE, ROVER_PHOTO_ITEM_CAMERA_ROUTE, ACCOUNT_ROUTE,
+SEARCH_EVENT_ROUTE
 } from "./consts"
 import Homepage from "../pages/Homepage"
 import LoginPage from "../pages/LoginPage"
@@ -16,6 +17,7 @@ import RoversPage from "../pages/roversPage"
 import RoversPageItem from "../pages/roversPageItem"
 import RoverPageItemComponentItemPage from "../components/roverPageItemComponentItemPage/roverPageItemComponentItemPage"
 import AccountPage from "../pages/AccountPage"
+import SearchedEventPage from "../pages/searchedEventPage"
 const publicRoutes=[
  {
     path: SIGN_UP_ROUTE,
@@ -61,6 +63,10 @@ const publicRoutes=[
    path: ROVER_PHOTO_ITEM_CAMERA_ROUTE,
    Component: RoverPageItemComponentItemPage
 },
+{
+   path: SEARCH_EVENT_ROUTE,
+   Component: SearchedEventPage 
+}
 /*{
    path: ACCOUNT_ROUTE,
    Component: AccountPage
@@ -101,6 +107,7 @@ const privateRoutes =[
    Component: RoversPage
 
 },
+
 /*{
    path:  ROVER_PHOTO_ROUTE,
    Component: RoversPage
@@ -118,7 +125,11 @@ const privateRoutes =[
 {
    path: ACCOUNT_ROUTE,
    Component: AccountPage
-} 
+},
+{
+   path: SEARCH_EVENT_ROUTE,
+   Component: SearchedEventPage 
+}
 ]
 interface AppRoutesProps {
 isAuthenticated: boolean

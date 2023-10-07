@@ -8,6 +8,7 @@ import * as SattelitiesIdCreator from "./sattelitiesId"
 import * as RoversCreator from "./rovers"
 import * as RoverCreator from "./rover"
 import * as RoverCameraCreator from "./roverCamera"
+import * as NasaDatabaseCreator from "./nasaDatabase"
 export default {
     ...TodoActionCreators,
     ...UserActionCreators,
@@ -18,5 +19,6 @@ export default {
     ...SattelitiesIdCreator,
     ...RoversCreator,
     ...RoverCreator,
-    ...RoverCameraCreator
+    ...RoverCameraCreator,
+    ...NasaDatabaseCreator
 }

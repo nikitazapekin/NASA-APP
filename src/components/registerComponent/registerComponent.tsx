@@ -28,12 +28,6 @@ const RegisterComponent = () => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     event.stopPropagation();
-
-
-
-
-    console.log(1122)
-   
    //   axios.post('http://localhost:3000/test', "sss")
    axios.post('/api/auth/register', {firstName: form.firstName, secondName: form.secondName, email: form.email, password: form.password })
   .then(function (response) {
@@ -41,11 +35,7 @@ const RegisterComponent = () => {
   })
   .catch(function (error) {
     console.error('Произошла ошибка:', error);
-  })
-
-
-
-    
+  })  
   };
   const registerHandler = async () => {
 console.log(1122)

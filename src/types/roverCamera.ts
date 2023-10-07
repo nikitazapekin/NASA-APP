@@ -45,24 +45,11 @@ interface FetchRoverCameraSuccessAction {
                         name: string,
                         full_name: string
                     }>
-                   // cameras: [
-                    /*    {
-                            "name": "FHAZ",
-                            "full_name": */
+                  
                 }
             }
         ]
-      /*  rovers:  {
-            id: number ,
-            name: string ,
-            landing_date:  string,
-            launch_date:  string,
-            status:  string,
-            max_sol:  number,
-            max_date:  string,
-            total_photos:  number,
-            cameras: RoverCamera[]
-        } */
+     
     }
   }
 interface FetchRoverCameraErrorAction {
@@ -79,12 +66,7 @@ interface SetRoverCameraPage {
 
 export interface RoverCameraState {
 data: {
-
-
-
-
-
-   // {
+ 
         photos: [
             {
                 id: number,
@@ -110,10 +92,7 @@ data: {
                         name: string,
                         full_name: string
                     }>
-                   // cameras: [
-                    /*    {
-                            "name": "FHAZ",
-                            "full_name": */
+                    
                 }
             }
         ]

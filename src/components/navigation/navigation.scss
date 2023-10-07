@@ -152,3 +152,30 @@ transform: translateX(30px);
     justify-content: space-between;
     margin-right: 50px;
 }
+
+.foundedElemsSearch {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    width: 100%;
+    top: 50px;
+   // padding: 5px;
+    background-color: rgb(1, 1, 194);
+} 
+
+.foundedElemSearch {
+   width: 100%;
+   height: auto;
+   white-space: wrap;
+   color: #fff;
+   border-bottom: 3px solid black;
+   cursor: pointer;
+ // padding: 5px;
+  
+} 
+ .foundedElemSearchText{
+    max-width: 95%;
+    width: 100%;
+    text-align: center;
+ }

@@ -1,6 +1,6 @@
 import "./navigation.scss"
 import { Link } from "react-router-dom"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import NavigationWindow from "../navigationWindow/navigationWindow"
 import Search from "../../asserts/search.png"
 import ChatIcon from "../../asserts/chatIcon.png"
@@ -9,19 +9,49 @@ import User from "../../asserts/us.png"
 import { useContext } from "react"
 import { AuthContext } from "../../context/AuthContext"
 import { useRef } from "react"
+import { useTypedSelectors } from "../../hooks/useTypedSelectors"
+import { useActions } from "../../hooks/useActions"
+import { useCallback } from "react"
+import debounce from 'lodash/debounce';
+
 interface NavigationProps {
 isAuthenticated: boolean
 }
 const Navigation = ({isAuthenticated}: NavigationProps)=> {
+  const [timer, setTimer] = useState<NodeJS.Timeout | null>(null);
+  const [searchItems, setSearchItems]=useState<any[]>([])
   const auth = useContext(AuthContext)
- 
+  const [value, setValue] =useState("")
+  const {data, error, loading} =useTypedSelectors(state=>state.NasaDatabaseReducer)
+ const {fetchNasaDatabase} =useActions()
   const [isSearchActive, setIsSearchActive] = useState(false); 
+ const handleClickElem=()=> {
+setSearchItems([])
+ }
   const searchForm=(event: React.ChangeEvent<HTMLInputElement>)=> {
     if(event.target.name=="search"){
+      //setValue(event.target.value)
       setIsSearchActive(event.target.value.length > 0); 
-  console.log(event.target.value.length)
+ if (timer) {
+  clearTimeout(timer);  
+}
+ 
+const newTimer = setTimeout(() => {
+  sendRequest(event.target.value);
+}, 300);
+setTimer(newTimer);
 }
   }
+  useEffect(()=> {
+    try{
+
+      setSearchItems(data.collection.items )
+      console.log(data.collection.items[0].data[0].description )
+    }  catch(e){
+      console.log(111) 
+      console.log(e)
+    }
+  }, [data])
     const handleClick=()=> {
       if(isOpen==true){
         setIsOpen(false)
@@ -31,7 +61,16 @@ const Navigation = ({isAuthenticated}: NavigationProps)=> {
       }
     }
     const [isOpen, setIsOpen] =useState(false)
-  
+    const sendRequest = (query: string) => {
+      try {
+
+        fetchNasaDatabase(query)
+      } catch(e){
+      
+        console.log("ERR"+e)
+      }
+    };
+
     return (
 <nav className='navigation'>
 <div className='navigationItem'>
@@ -39,7 +78,6 @@ const Navigation = ({isAuthenticated}: NavigationProps)=> {
 <div className='navigationItem navigationItemMarginLeft '>
       <div className="navigationItemFlexBefore">
       <Link style={{textDecoration: "none", color: "#fff"}} to="/">
- 
         <div className="navigationItemFlexItem">SpaceX</div>
  </Link>
      
@@ -66,8 +104,20 @@ className={`searchInputZ ${isSearchActive ? 'active' : ''}`}
 type="text" name="search" placeholder="Search"  
  
 
-
 onChange={ searchForm} />
+<div className="foundedElemsSearch">
+{searchItems.slice(0,5).map((item, index)=> (
+  <div className="foundedElemSearch">
+
+  <Link style={{color: "#fff", textDecoration: "none"}} to={`/search/${item.data[0].title}`}> 
+<p className="foundedElemSearchText" onClick={ handleClickElem}>
+  {item.data[0].title}
+  </p>
+    </Link> 
+
+</div>
+))}
+</div>
 <button className="searchButtonZ"   >
         <img src={Search} className="tyu" />
 </button>
