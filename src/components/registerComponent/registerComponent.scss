@@ -127,7 +127,23 @@
      top: 30px;
      cursor: pointer;
    }
- 
-   .registrationPassword {
- 
+
+   .registrationNameIsUsed {
+    position: absolute;
+    right: 0;
    }
+
+   .registrationPlaceholderError {
+    color: #65657b;
+    font-family: sans-serif;
+   // left: 20px;
+   position: absolute;
+   right: 0;
+    line-height: 14px;
+    padding-right: 20px;
+    pointer-events: none;
+    position: absolute;
+    transform-origin: 0 50%;
+    transition: transform 200ms, color 200ms;
+    top: 20px;
+  }

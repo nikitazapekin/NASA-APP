@@ -1,0 +1,54 @@
+.articleBox {
+    position: relative;
+    width: 100%;
+    max-width: 90%;
+    min-height: 90vh;
+    padding: 50px;
+     background-color: #15172b;
+    height: auto;
+   // display: block;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+    overflow-y: scroll;
+    margin: 0 auto;
+   
+    .imageOfArticle {
+      display: flex;
+      justify-content: center;
+       // max-width: 90%;
+        width: 100%;
+        margin-bottom: 10px;
+        height: auto;
+    }
+    .articleTitle, .subArticleTitle {
+        color: #fff;
+
+    }
+    .nothingToShow {
+        color: #fff;
+        font-size: 32px;
+        text-align: center;
+    }
+    .blockOfArticleMultimedia {
+       display: flex;
+       justify-content: center;
+        gap: 30px
+    }
+    .buttonOfMultimedia {
+        width: 200px;
+        height: 70px;
+        font-size: 32px;
+        background-color: #08d;
+        cursor:  pointer;
+        outline: none;
+        border: none;
+        border-radius: 20px;
+        transition: 0.5s ease-in-out;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+   .buttonOfMultimedia:hover {
+    transform: translateX(5px);
+   }  
+}

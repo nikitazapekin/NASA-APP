@@ -10,6 +10,8 @@ import { RoversReducer } from "./rovers";
 import { RoverReducer } from "./rover";
 import { RoverCameraReducer } from "./roverCamera";
 import { NasaDatabaseReducer } from "./nasaDatabase";
+import { NasaDatabaseListReducer } from "./nasaDatabaseList";
+import { ArticleReducer } from "./article";
 export const rootReducer = combineReducers({
     user: userReducer,
     achievements: picturesReducer,
@@ -21,7 +23,9 @@ objectsNearEarthReducer: objectsNearEarthReducer,
  RoversReducer: RoversReducer,
  RoverReducer: RoverReducer,
  RoverCameraReducer: RoverCameraReducer,
- NasaDatabaseReducer: NasaDatabaseReducer
+ NasaDatabaseReducer: NasaDatabaseReducer,
+ NasaDatabaseListReducer:  NasaDatabaseListReducer,
+ ArticleReducer: ArticleReducer
  
  
 })

@@ -6,6 +6,8 @@ import "./searchByDataComponent.scss";
 import { useActions } from "../../hooks/useActions";
 import { useState } from "react";
 import { months } from "../../utils/month";
+
+import { useTypedSelectors } from "../../hooks/useTypedSelectors"
 interface TodaysPictureProps {
   isClicked: boolean,
   setIsClicked:  React.Dispatch<React.SetStateAction<boolean>>;

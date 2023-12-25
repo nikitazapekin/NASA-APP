@@ -1,19 +1,19 @@
 
 export enum NasaDatabaseActionTypes {
-    FETCH_NASA_DATABASE='FETCH_NASA_DATABASE',
-    FETCH_NASA_DATABASE_SUCCESS='FETCH_NASA_DATABASE_SUCCESS',
-    FETCH_NASA_DATABASE_ERROR='FETCH_NASA_DATABASE_ERROR',
-    SET_NASA_DATABASE_PAGE = 'SET_NASA_DATABASE_PAGE'
+    FETCH_NASAA_DATABASE='FETCH_NASA_DATABASE',
+    FETCH_NASAA_DATABASE_SUCCESS='FETCH_NASA_DATABASE_SUCCESS',
+    FETCH_NASAA_DATABASE_ERROR='FETCH_NASA_DATABASE_ERROR',
+    SET_NASAA_DATABASE_PAGE = 'SET_NASA_DATABASE_PAGE'
 }
 interface FetchNasaDatabaseAction {
-    type:NasaDatabaseActionTypes.FETCH_NASA_DATABASE
+    type:NasaDatabaseActionTypes.FETCH_NASAA_DATABASE
 }
 export interface RoverCamera {
     name: string,
     fullname: string
   }
 interface FetchNasaDatabaseSuccessAction {
-    type: NasaDatabaseActionTypes.FETCH_NASA_DATABASE_SUCCESS;
+    type: NasaDatabaseActionTypes.FETCH_NASAA_DATABASE_SUCCESS;
 
 
 
@@ -26,11 +26,8 @@ interface FetchNasaDatabaseSuccessAction {
 
 
             items: Array<
-            // [
-              
                  {
                      href: string ,
-                   //  data: [
                        data: Array<{
                              center:  string,
                              title: string ,
@@ -57,18 +54,18 @@ interface FetchNasaDatabaseSuccessAction {
  }
 }
 interface FetchNasaDatabaseErrorAction {
-    type: NasaDatabaseActionTypes.FETCH_NASA_DATABASE_ERROR;
+    type: NasaDatabaseActionTypes.FETCH_NASAA_DATABASE_ERROR;
     payload: string;
 }
 
 
 interface SetNasaDatabasePage {
-  type: NasaDatabaseActionTypes.SET_NASA_DATABASE_PAGE;
+  type: NasaDatabaseActionTypes.SET_NASAA_DATABASE_PAGE;
   payload: number;
 }
 
 
-export interface NasaDatabaseState {
+export interface NasaDatabaseStatee {
 data: {
 
     collection: {

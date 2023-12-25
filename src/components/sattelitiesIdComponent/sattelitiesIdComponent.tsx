@@ -27,12 +27,6 @@ if(array[2]!=undefined && array[2]!=undefined){
 }
 
 }, [data.tle.line1])
-   /* useEffect(()=> {
-fetchSattelitiesId(id)
-    }, []) */
-
-
-
     useEffect(() => {
       fetchSattelitiesId(id);
       const intervalId = setInterval(() => {

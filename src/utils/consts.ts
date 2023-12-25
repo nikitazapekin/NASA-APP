@@ -11,4 +11,5 @@ export const ROVER_PHOTO_ITEM_ROUTE="/Rover photo/:id"
 export const ROVER_PHOTO_ITEM_CAMERA_ROUTE ="/Rover photo/:id/:idd"
 export const ACCOUNT_ROUTE ="/account/:id/:idd"
 export const SEARCH_EVENT_ROUTE ="/search/:id"
-//RoverPageItemComponentItemPage
+export const FOUND_ELEMS_ROUTE ="/found-elements/:id"
+export const ARTICLE_ROUTE ="/article/:id/:idd"

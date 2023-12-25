@@ -4,7 +4,7 @@ import {Route, Routes, Navigate}  from "react-router-dom"
 import {HOMEPAGE_ROUTE, SIGN_IN_ROUTE, SIGN_UP_ROUTE, PICTURES_ROUTE, 
    OBJECTS_NEAR_EARTH_ROUTE, SATTELITIES_ROUTE, SATTELITIES_ID_ROUTE, ROVER_PHOTO_ROUTE, 
 ROVER_PHOTO_ITEM_ROUTE, ROVER_PHOTO_ITEM_CAMERA_ROUTE, ACCOUNT_ROUTE,
-SEARCH_EVENT_ROUTE
+SEARCH_EVENT_ROUTE, FOUND_ELEMS_ROUTE, ARTICLE_ROUTE
 } from "./consts"
 import Homepage from "../pages/Homepage"
 import LoginPage from "../pages/LoginPage"
@@ -18,6 +18,8 @@ import RoversPageItem from "../pages/roversPageItem"
 import RoverPageItemComponentItemPage from "../components/roverPageItemComponentItemPage/roverPageItemComponentItemPage"
 import AccountPage from "../pages/AccountPage"
 import SearchedEventPage from "../pages/searchedEventPage"
+import FoundSerachItems from "../pages/foundSearchItems/foundSearchItems"
+import ArticlePage from "../pages/articlePage"
 const publicRoutes=[
  {
     path: SIGN_UP_ROUTE,
@@ -66,25 +68,26 @@ const publicRoutes=[
 {
    path: SEARCH_EVENT_ROUTE,
    Component: SearchedEventPage 
+},
+
+
+
+{
+   path: FOUND_ELEMS_ROUTE,
+   Component: FoundSerachItems
+}, 
+{
+   path: ARTICLE_ROUTE,
+   Component: ArticlePage
 }
-/*{
-   path: ACCOUNT_ROUTE,
-   Component: AccountPage
-} */
+
 ]
 const privateRoutes =[
     {
         path: HOMEPAGE_ROUTE,
         Component: Homepage
      },
-   /* {
-      path: SIGN_UP_ROUTE,
-      Component: RegisterPage
-   },
-   {
-    path: SIGN_IN_ROUTE,
-    Component: LoginPage
- }, */ 
+ 
  {
     path: PICTURES_ROUTE,
     Component: AchievementsPage
@@ -108,11 +111,7 @@ const privateRoutes =[
 
 },
 
-/*{
-   path:  ROVER_PHOTO_ROUTE,
-   Component: RoversPage
 
-}, */
 {
    path: ROVER_PHOTO_ITEM_ROUTE,
    Component: RoversPageItem
@@ -129,6 +128,15 @@ const privateRoutes =[
 {
    path: SEARCH_EVENT_ROUTE,
    Component: SearchedEventPage 
+},
+
+{
+   path: FOUND_ELEMS_ROUTE,
+   Component: FoundSerachItems
+}, 
+{
+   path: ARTICLE_ROUTE,
+   Component: ArticlePage
 }
 ]
 interface AppRoutesProps {

@@ -68,6 +68,11 @@ console.log(1122)
         <label htmlFor="registrationFirstname" className="registrationPlaceholder">
           First name
         </label>
+
+        <label htmlFor="registrationNameIsUsed" className="registrationPlaceholderError">
+        This name is used
+        </label>
+
       </div>
       <div className="input-container ic2">
         <input
@@ -96,6 +101,12 @@ console.log(1122)
         <label htmlFor="registrationEmail" className="registrationPlaceholder">
           Email
         </label>
+
+
+
+        <label htmlFor="registrationEmailIsUsed" className="registrationPlaceholderError">
+        This email is used
+        </label>
       </div>
       <div className="input-container ic2">
         <input
@@ -109,6 +120,11 @@ console.log(1122)
         <div className="registrationCut cut-short"></div>
         <label htmlFor="registrationEmail" className="registrationPlaceholder">
          Password
+        </label>
+
+
+        <label htmlFor="registrationNameIsPassword" className="registrationPlaceholderError">
+        The password must consist of 6 letters and 4 numbers
         </label>
       </div>
 
