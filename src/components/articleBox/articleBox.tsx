@@ -7,6 +7,7 @@ import { useActions } from "../../hooks/useActions"
 import { useEffect, useState } from "react";
 import Spinner from "../spinner/spinner"
 import ErrorBoundary from "../ErrorBoundary/errorBoundary";
+import { fetchOneDevice } from "../../http/fo";
 interface props {
     id: string | undefined,
     idd: string |  undefined
@@ -78,6 +79,12 @@ data1.collection.items.forEach(item => {
             <Spinner />
         )
     }
+    const hd=()=> {
+        console.log("PROOOOOOOOOOOOOOOOOOOOOCESS"+process.env.TEST_API_URL)
+        console.log("ssssssss"+process.env.REACT_APP_API_URL)
+            fetchOneDevice(4).then(data =>console.log("FROM MODERM"+data))
+      
+    }
     return ( 
     <div className="articleBox">
         <div className="imagesOfArticle">
@@ -127,6 +134,11 @@ Sounds
     Ваш браузер не поддерживает видео.
 </video>
 ))}
+
+
+<button onClick={hd}>
+    SHOW
+</button>
   {clickedSounds &&
   arrayOfSounds.map((item, index) => (
     <audio key={index} className="audioOfArticle" controls>

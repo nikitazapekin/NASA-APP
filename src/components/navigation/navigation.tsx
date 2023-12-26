@@ -111,23 +111,12 @@ name="searchh"
        onChange={ searchForm}
 />
 
-{/*
-<div className="foundedElemsSearch">
-{searchItems.length>0 && searchItems.slice(0,5).map((item, index)=> (
-  <div className="foundedElemSearch">
-  <Link style={{color: "#fff", textDecoration: "none"}} to={`/search/${item.data[0].title}`}> 
-<p className="foundedElemSearchText" onClick={ handleClickElem}>
-  {item.data[0].title}
-  </p>
-    </Link> 
-</div>
-))}
-</div> */}
+
 
 <div className="foundedElemsSearch">
   {isSearchActive && !isSearchClicked && searchItems.length > 0 && searchItems.slice(0, 5).map((item, index) => (
     <div className="foundedElemSearch" key={index}>
-      <Link style={{ color: "#fff", textDecoration: "none" }} to={`/search/${item.data[0].title}`}>
+      <Link style={{ color: "#fff", textDecoration: "none" }} to={`/article/${item.data[0].nasa_id}/${item.data[0].title}`}>
         <p className="foundedElemSearchText" onClick={handleClickElem}>
           {item.data[0].title}
         </p>
@@ -135,9 +124,6 @@ name="searchh"
     </div>
   ))}
 </div>
-
-
-
 <button className="searchButtonZ"   >
         <img src={Search} className="tyu" onClick={()=> handleNavigate()} />
 </button>
