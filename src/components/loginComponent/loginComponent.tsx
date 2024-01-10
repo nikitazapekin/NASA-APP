@@ -9,28 +9,22 @@ const LoginComponent=()=> {
   const [form, setForm] = useState({
     email: '', password: ''
   })
-
-
   const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, [event.target.name]: event.target.value })
   }
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         event.stopPropagation();
-        console.log(1234)
         try {
           axios.post('/api/auth/login', {email: form.email, password: form.password })
           .then(function (response) {
             console.log('Успешно отправлено!', response.data);
-         //   useNavigate('/account')
-       //  auth.login(response.data.token, response.data.userId )
        auth.login(response.data.token, response.data.userId, response.data.firstName, response.data.secondName )
          navigate(`/account/${response.data.firstName}/${response.data.secondName}`)
           })
           .catch(function (error) {
             console.error('Произошла ошибка:', error);
           });
-        
             } catch (e) {}
       };
     return (

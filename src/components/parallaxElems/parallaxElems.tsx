@@ -11,8 +11,7 @@ const ParallaxElems = () => {
         translateX: [-100, 1100],
         translateY: [-1500, 300],
       rotateZ: [0, 45],
-      
-   //   rotate: [0,34]
+
       }); 
 
       const parallax1: any = useParallax({

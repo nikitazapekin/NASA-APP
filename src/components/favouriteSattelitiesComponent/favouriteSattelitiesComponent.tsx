@@ -1,8 +1,10 @@
 import { useActions } from "../../hooks/useActions"
 import { useEffect } from "react"
 import "./favouriteSattelitiesComponent.scss"
+import Spinner from "../spinner/spinner"
 import { useTypedSelectors } from "../../hooks/useTypedSelectors"
 import FavouriteSattelitiesComponentItem from "../favouriteSattelitiesComponentItem/favouriteSattelitiesComponentItem"
+
 const FavouriteSattelitiesComponent =()=> {
     const {fetchSattelities} =useActions()
     const {data, error, loading}=useTypedSelectors(state=> state.sattelitiesReducer)
@@ -10,6 +12,9 @@ const FavouriteSattelitiesComponent =()=> {
 fetchSattelities()
 console.log(data)
     }, [])
+    if(loading){
+<Spinner />
+    }
     return (
         <div className="favouriteSattelitiesComponent">
             <h1 className="recentlyPopularSattelities">Recently popular sattelities</h1>

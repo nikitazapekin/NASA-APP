@@ -2,7 +2,7 @@
 import { useActions } from "../../hooks/useActions"
 import { useEffect, useState } from "react"
 import { useTypedSelectors } from "../../hooks/useTypedSelectors"
-
+import Spinner from "../spinner/spinner"
 import "./sattelitiesIdComponent.scss"
 import SattelitiesMap from "../Map/map"
 interface SattelitiesIdComponnentProps {
@@ -37,6 +37,9 @@ if(array[2]!=undefined && array[2]!=undefined){
   
   let  numb=5
   let geodeticNum =3
+  if(loading) {
+    return <Spinner />
+  }
     return  (
 <div className="sattelitiesIdComponent">
   <h1 className="sattelitiesIdComponentTitle">{data.tle.name} at this moment</h1>

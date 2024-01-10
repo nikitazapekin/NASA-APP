@@ -1,6 +1,7 @@
 import { useActions } from "../../hooks/useActions"
 import { useEffect } from "react"
 import { useTypedSelectors } from "../../hooks/useTypedSelectors"
+import Spinner from "../spinner/spinner"
 import "./objectsNearEarthTable.scss"
 const ObjectsNearEarthTable =()=> {
     const {fetchObjectsNearEarth, setObjectsNearEarthPage} = useActions()
@@ -10,11 +11,12 @@ const ObjectsNearEarthTable =()=> {
 fetchObjectsNearEarth(page, limit)
     }, [page])
     if(loading){
-        return <h1>is loading</h1>
+        return <Spinner />
       }
       if(error){
         return <h1>{error}</h1>
       }
+    
     return (
         <div className="tableWrapper">
         <button onClick={()=> console.log(data.data)}>sssss</button>

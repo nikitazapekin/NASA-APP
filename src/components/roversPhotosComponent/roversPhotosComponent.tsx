@@ -4,9 +4,8 @@ import { useActions } from "../../hooks/useActions"
 import { useEffect, useMemo } from "react"
 import { useState } from "react"
 import "./roversPhotosComponent.scss"
- 
-import RoversPhotosComponentItem from "../roversPhotosComponentItem/roversPhotosComponentItem"
 import Spinner from "../spinner/spinner"
+import RoversPhotosComponentItem from "../roversPhotosComponentItem/roversPhotosComponentItem"
 import Calendar from "../calendar/calendar"
 interface RoversPhotoComponentProps {
     id: string | undefined,
@@ -42,6 +41,9 @@ useEffect(()=> {
         return (
             <Spinner />
         )
+    }
+    if(loading) {
+      return <Spinner />
     }
     return (
         <div className="roversPhotosComponent">

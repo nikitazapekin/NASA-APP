@@ -32,18 +32,7 @@ const [secondName, setSecondName] =useState<null | string>(null)
     setSecondName(null)
     localStorage.removeItem(storageName)
   }, [])
-/*
-  useEffect(() => {
-   // if( JSON.parse(localStorage.getItem(storageName))!=null){
-    //}
 
-      const data = JSON.parse(localStorage.getItem(storageName))
-      if (data && data.token && data.firstName && data.secondName) {
-        login(data.token, data.userId, data.firstName, data.secondName)
-      }
-      setReady(true)
-  }, [login])
- */
   useEffect(() => {
     const storedData = localStorage.getItem(storageName);
     if (storedData !== null) {

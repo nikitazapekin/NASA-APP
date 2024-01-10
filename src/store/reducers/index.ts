@@ -12,6 +12,8 @@ import { RoverCameraReducer } from "./roverCamera";
 import { NasaDatabaseReducer } from "./nasaDatabase";
 import { NasaDatabaseListReducer } from "./nasaDatabaseList";
 import { ArticleReducer } from "./article";
+import { GetUserDataReducer } from "./getUserData";
+import { setUserPhotoReducer } from "./setUserLogo";
 export const rootReducer = combineReducers({
     user: userReducer,
     achievements: picturesReducer,
@@ -25,8 +27,9 @@ objectsNearEarthReducer: objectsNearEarthReducer,
  RoverCameraReducer: RoverCameraReducer,
  NasaDatabaseReducer: NasaDatabaseReducer,
  NasaDatabaseListReducer:  NasaDatabaseListReducer,
- ArticleReducer: ArticleReducer
- 
+ ArticleReducer: ArticleReducer,
+ GetUserDataReducer: GetUserDataReducer,
+ SetUserPhoto: setUserPhotoReducer
  
 })
 export type RootState = ReturnType<typeof rootReducer>

@@ -150,7 +150,9 @@ const AppRoutes=({isAuthenticated}: AppRoutesProps)=> {
 {privateRoutes.map(({path, Component})=>( <Route  key={path} path={path} element={<Component isAuthenticated={isAuthenticated}  />} />)
 
 )}
+
 <Route path="*" element={<Navigate replace to={HOMEPAGE_ROUTE} />} />  
+
         </Routes>
     )
     :
@@ -158,8 +160,11 @@ const AppRoutes=({isAuthenticated}: AppRoutesProps)=> {
         <Routes>
 {publicRoutes.map(({path, Component})=> (<Route   key={path} path={path} element={<Component isAuthenticated={isAuthenticated}/>}  />)
 )}
+
+
 <Route path="*" element={<Navigate replace to={HOMEPAGE_ROUTE} />} />  
-        </Routes>
+  
+</Routes>
     )
 };
 export default AppRoutes

@@ -4,6 +4,7 @@ import { useActions } from "../../hooks/useActions";
 import { useTypedSelectors } from "../../hooks/useTypedSelectors";
 import { useEffect } from "react";
 import "./roverPageItemComponentItemPage.scss"
+import Spinner from "../spinner/spinner"
 import RoversPhotoComponent from "../roversPhotoComponent/roversPhotoComponent";
 import RoversPhotosComponent from "../roversPhotosComponent/roversPhotosComponent";
 interface RoversPageItemProps {
@@ -19,6 +20,9 @@ const {fetchRoverCamera} =useActions()
        // fetchRoverCamera(id, idd)
       }
     }, [])
+    if(loading){
+      return <Spinner />
+    }
     return (
       <>
     

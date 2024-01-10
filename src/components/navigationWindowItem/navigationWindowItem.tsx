@@ -5,9 +5,7 @@ import { Link } from "react-router-dom";
    item: string,
    setIsOpen:  React.Dispatch<React.SetStateAction<boolean>>;
 }
-
 const NavigationWindowItem = ({item, setIsOpen}: NavigationWindowProps) => {
-
     return (
     <Link style={{textDecoration: "none", color: "#fff"}} to={`/${item}`}>
         <div 
@@ -17,7 +15,6 @@ const NavigationWindowItem = ({item, setIsOpen}: NavigationWindowProps) => {
             </Link>
     )
 }
-
 export default NavigationWindowItem;
 
 /* onClick={handleClick}  */

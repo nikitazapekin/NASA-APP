@@ -6,8 +6,6 @@ import Moon4 from "../../asserts/space4.jpg"
 import Moon5 from "../../asserts/space5.jpg"
 import { useParallax } from "react-scroll-parallax"
 const MoonPics = () => {
-
- 
     return (  
         <div className="moonPics">
 <img className="moonPic" alt="moon" src={Moon3} />

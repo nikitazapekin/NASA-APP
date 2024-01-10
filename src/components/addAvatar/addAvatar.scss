@@ -1,0 +1,67 @@
+
+.avatarBlock{
+    position: relative;
+    left: 350px;
+    top: 20px;
+    overflow-x: hidden;
+}
+.inputAddAvatar {
+    position: absolute;
+    width: 200px;
+    overflow-x: hidden;
+    opacity: 0;
+    height: 200px;
+}
+.loadedAvatar {
+    border-radius: 50%;
+    overflow-x: hidden;
+    width: 200px;
+    height: 200px;
+}
+
+.boxOfUserData {
+    max-width: 1100px;
+}
+.emailOfAutherizedUser {
+   // max-width: 70%;
+  // max-width: 700px;
+ // width: 700px;
+ width: 100%;
+    cursor: pointer;
+}
+.changeEmail {
+    //text-align: right;
+  float: right;
+ //  padding-left: 40%;
+}
+.lineChangeEmail {
+    border-bottom: 2px solid black;
+    //  max-width: 70%;
+    margin-bottom: 10px;
+ // max-width: 700px;
+ width: 100%;
+}
+.saveChanges {
+    width: 40%;
+    height: 60px;
+    background-color: darkslateblue;
+    border:  none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 32px;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+  border-radius: 20px;
+  margin-left: 20%;
+   
+}
+.changePasswordInput {
+    background-color: transparent;
+    border-left: none;
+    border-top: none;
+    border-right: none;
+    outline: none;
+}

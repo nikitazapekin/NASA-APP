@@ -11,6 +11,8 @@ import * as RoverCameraCreator from "./roverCamera"
 import * as NasaDatabaseCreator from "./nasaDatabase"
 import * as NasaDatabaseListCreator from "./nasaDatabaseList"
 import * as ArticleCreator from "./article"
+import * as GetUserDataCreator from "./getUserData"
+import * as SetUserPhotoCreator from "./setUserLogo"
 export default {
     ...TodoActionCreators,
     ...UserActionCreators,
@@ -24,6 +26,8 @@ export default {
     ...RoverCameraCreator,
     ...NasaDatabaseCreator,
     ...NasaDatabaseListCreator,
-    ...ArticleCreator
+    ...ArticleCreator, 
+    ...GetUserDataCreator,
+    ...SetUserPhotoCreator
 
 }

@@ -37,7 +37,8 @@ router.post(
     }
 
     const hashedPassword = await bcrypt.hash(password, 12)
-    const user = new User({firstName, secondName, email, password: hashedPassword })
+    const url= "https://cdn-icons-png.flaticon.com/512/1946/1946429.png"
+    const user = new User({firstName, secondName, email, password: hashedPassword, url, fav: {articles: [], photos: []} })
 
     await user.save()
 
@@ -75,7 +76,6 @@ console.log("p"+password)
     if (!user) {
       return res.status(400).json({ message: 'Пользователь не найден' })
     }
-
     const isMatch = await bcrypt.compare(password, user.password)
 
     if (!isMatch) {
@@ -89,7 +89,7 @@ console.log("p"+password)
       { expiresIn: '1h' }
     )
 
-    res.json({ token, userId: user.id, firstName: user.firstName, secondName: user.secondName })
+    res.json({ token, userId: user.id, firstName: user.firstName, secondName: user.secondName, url: user.url, fav: user.fav, email: user.email })
 
   } catch (e) {
     res.status(500).json({ message: 'Что-то пошло не так, попробуйте снова' })

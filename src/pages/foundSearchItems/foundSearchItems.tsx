@@ -5,6 +5,8 @@ import { fetchNasaDatabaseList } from "../../store/action-creator/nasaDatabaseLi
 import { useActions } from "../../hooks/useActions"
 import { useEffect } from "react";
 import { useTypedSelectors } from "../../hooks/useTypedSelectors"
+//import Spinner from "../spinner/spinner"
+import Spinner from "../../components/spinner/spinner";
 import RenderOfFoundSearchItems from "../../components/renderOfFoundSearchItems/renderOfFoundSearchItems";
 interface ObjectsNearEarthProps {
     isAuthenticated: boolean;
@@ -22,6 +24,9 @@ console.log("data at" +JSON.stringify(data))
 console.log(data.collection.items)
 }, [data])
     const {id}= useParams()
+    if(loading){ 
+      return <Spinner />
+    }
     return ( 
         <>
         <Navigation isAuthenticated={isAuthenticated} />

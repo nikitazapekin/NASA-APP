@@ -5,7 +5,9 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import { useContext } from "react";
 import { useState } from "react";
+import Spinner from "../spinner/spinner"
 import { useHttp } from "../../hooks/http.hook";
+import Modal from "../modal/modal";
 import axios from "axios";
 interface formTypes {
   firstName: string,
@@ -15,6 +17,7 @@ interface formTypes {
 } 
 const RegisterComponent = () => {
   const auth = useContext(AuthContext)
+  const [isOpen, setIsOpen]=useState(false)
   const {loading, request, error, clearError} = useHttp()
   const [form, setForm] = useState<formTypes>({
    firstName: '',
@@ -22,13 +25,23 @@ const RegisterComponent = () => {
     email: '', 
     password: ''
   })
+  const BUTTON_WRAPPER_STYLES = {
+    position: 'relative',
+    zIndex: 1
+  }
+  
+  const OTHER_CONTENT_STYLES = {
+    position: 'relative',
+    zIndex: 2,
+    backgroundColor: 'red',
+    padding: '10px'
+  }
   const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, [event.target.name]: event.target.value })
   }
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     event.stopPropagation();
-   //   axios.post('http://localhost:3000/test', "sss")
    axios.post('/api/auth/register', {firstName: form.firstName, secondName: form.secondName, email: form.email, password: form.password })
   .then(function (response) {
     console.log('Успешно отправлено!', response.data);
@@ -51,8 +64,28 @@ console.log(1122)
 
     } catch (e) {}
   }
+  if(loading) {
+return <Spinner />
+  }
   return (
     <form className="registrationForm" onSubmit={handleSubmit}>
+
+
+<div
+
+
+//style={BUTTON_WRAPPER_STYLES} 
+onClick={() => console.log('clicked')}>
+        <button onClick={() => setIsOpen(true)}>Open Modal</button>
+
+        <Modal open={isOpen} onClose={() => setIsOpen(false)}>
+          Fancy Modal
+        </Modal>
+      </div>
+
+      <div 
+      //style={OTHER_CONTENT_STYLES}
+      >Other Content</div>
       <div className="registrationTitle">Welcome</div>
       <div className="registrationSubtitle">Let's create your account!</div>
       <div className="input-container ic1">

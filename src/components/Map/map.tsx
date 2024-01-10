@@ -5,18 +5,13 @@ import maplibregl from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import Sattelity from "../../asserts/sattelity.png"
 import "./map.scss"
-
 interface SattelitiesMapProps {
   latitude:number;
   longitude:number
 }
-
-
-
 function SattelitiesMap({latitude, longitude}:SattelitiesMapProps ) {
   return (
     <div className="map">
-    
       <Map mapLib={maplibregl as any} 
         initialViewState={{
           latitude: latitude,
@@ -27,7 +22,6 @@ function SattelitiesMap({latitude, longitude}:SattelitiesMapProps ) {
         mapStyle="https://api.maptiler.com/maps/streets/style.json?key=AQNfDKrMi6QziS7yFql3"
       >
         <NavigationControl position="top-left" />
-  {/*  <Marker longitude={16.52} latitude={49.23} color="green" /> */}
   <Marker longitude={longitude} latitude={latitude}> 
   <img src={Sattelity} alt="Marker Icon"  style={{width: "50px", height: "50px"}}/>
 </Marker>
