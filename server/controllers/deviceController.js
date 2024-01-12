@@ -4,16 +4,17 @@ const path = require('path');
 const { Router } = require('express');
 const bodyParser = require('body-parser');
 const User = require('../models/User');
+const emailValidator = require('email-validator');
 const router = Router();
 const jwt = require('jsonwebtoken');
+const {check, validationResult} = require('express-validator')
 const { jwtDecode } = require('jwt-decode');
 const axios = require('axios');
+const bcrypt = require('bcryptjs')
 const fs = require('fs');
-
 class DeviceController {
   async create(req, res, next) {
     try {
-      // Логика создания устройства
     } catch (e) {
       res.status(500).json({ message: e });
     }
@@ -26,7 +27,7 @@ class DeviceController {
       const filePath = path.resolve(__dirname, '..', 'static', fileName);
 
       const response = await axios.get(url, {
-        responseType: 'arraybuffer' // Получаем данные как массив байтов
+        responseType: 'arraybuffer' 
       });
       fs.writeFile(filePath, response.data, 'binary', (err) => {
         if (err) {
@@ -37,22 +38,43 @@ class DeviceController {
       });
       const decodedToken = jwtDecode(token);
       const userId = decodedToken.userId;
-
       const user = await User.findOne({ _id: userId });
       if (user) {
-      //  user.set({ url: filePath }); 
       user.set({ url:  `http://localhost:5000/${fileName}` }); 
         const updatedUser = await user.save();
-
-    
-    } else {
-      
+    } else { 
     }
-
-
     } catch (e) {
       res.status(500).json({ message: e });
     }
+  }
+  async setEmailAndPassword(req, res) {
+try {
+const {email, password, token} = req.body
+console.log("em" +email, "pas"+password, "tok"+ token)
+if (!emailValidator.validate(email)) {
+  return res.status(400).json({ message: 'Некорректный формат email' });
+}
+
+const decodedToken = jwtDecode(token);
+const userId = decodedToken.userId;
+const user = await User.findOne({ _id: userId });
+const hashedPassword = await bcrypt.hash(password, 12)
+user.set({ email: email, password: hashedPassword}); 
+const updatedUser = await user.save();
+
+/*const decodedToken = jwtDecode(token);
+const userId = decodedToken.userId;
+const user = await User.findOne({ _id: userId }); */
+//const isEmailAdres= validator.isEmail(email); 
+//console.log("isValid"+isEmailAdres)
+//check('email', 'Введите корректный email').isEmail()
+//user.set({ url:  `http://localhost:5000/${fileName}` }); 
+//const updatedUser = await user.save();
+
+} catch(e){
+  res.status(500).json({message: e})
+}
   }
 }
 

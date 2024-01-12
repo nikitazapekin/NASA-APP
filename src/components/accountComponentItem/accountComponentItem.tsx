@@ -24,9 +24,7 @@ const AccountComponentItem: React.FC<AccountComponentItemProps> = ({
   useEffect(()=> {
 console.log("DATAAAAAAAAAAAAAAAAAA"+ data.url)
   }, [data])
-useEffect(()=> {
-fetchUserData()
-}, [])
+
   const handleSubmit = () => {
     auth.logout();
   };

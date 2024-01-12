@@ -22,8 +22,6 @@ app.use(bodyParser.urlencoded({limit: '50mb'}));
 //var bodyParser = require('body-parser');а
 //app.use(bodyParser.json({limit: "50mb"}));
 //app.use(bodyParser.urlencoded({limit: "50mb", extended: true, parameterLimit:50000}));
-
-
 app.use(express.json())
 app.use(express.static(path.resolve(__dirname, 'static')))
 app.use(fileUpload({}))
@@ -36,7 +34,6 @@ async function start() {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
-
 app.post('http://localhost:3000/api/link/generate', (req, res)=> { 
 console.log("GETTT")
 res.json("GETTT")
@@ -63,35 +60,3 @@ app.use((err, req, res, next) => {
 //yarn server
 // Nikita20041977
 
-/*
-const token = 'ваш JWT токен'; // здесь должен быть ваш JWT токен
-
-const userId = '659d7eb6ccd6bd3fdd45f16d'; // извлеченный userId из токена
-
-const данные = {
-    товар: 'Название товара',
-    цена: 100
-    // другие данные для добавления в корзину
-};
-
-fetch('/api/user/cart/add', {
-    method: 'POST',
-    headers: {
-        'Authorization': `Bearer ${token}`,
-        'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-        userId: userId,
-        данные: данные
-    })
-})
-    .then(response => {
-        // Обработка ответа от сервера
-        console.log(response);
-    })
-    .catch(error => {
-        // Обработка ошибок
-        console.error('Ошибка:', error);
-    });
-
-    */

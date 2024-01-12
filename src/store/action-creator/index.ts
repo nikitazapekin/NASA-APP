@@ -13,6 +13,8 @@ import * as NasaDatabaseListCreator from "./nasaDatabaseList"
 import * as ArticleCreator from "./article"
 import * as GetUserDataCreator from "./getUserData"
 import * as SetUserPhotoCreator from "./setUserLogo"
+import * as SetEmailAndPasswordCreator from "./setEmailAndPassword"
+import * as GetUserDataTokenCreator from "./getUserDataToken"
 export default {
     ...TodoActionCreators,
     ...UserActionCreators,
@@ -28,6 +30,8 @@ export default {
     ...NasaDatabaseListCreator,
     ...ArticleCreator, 
     ...GetUserDataCreator,
-    ...SetUserPhotoCreator
+    ...SetUserPhotoCreator,
+    ...SetEmailAndPasswordCreator, 
+    ...GetUserDataTokenCreator,
 
 }

@@ -5,6 +5,7 @@ const jwt = require('jsonwebtoken')
 const {check, validationResult} = require('express-validator')
 const User = require('../models/User')
 const router = Router()
+const { jwtDecode } = require('jwt-decode');
 
 router.post(
   '/register',
@@ -48,9 +49,32 @@ router.post(
     res.status(500).json({ message: 'Что-то пошло не так, попробуйте снова' })
   } 
 }
-)
+),
 
 // /api/auth/login
+router.post(
+  '/loginn',
+  [
+    check('email', 'Введите корректный email').normalizeEmail().isEmail(),
+    check('password', 'Введите пароль').exists()
+  ],
+  async (req, res)=> {
+const {token} = req.body
+console.log("TOKEN" + token)
+
+
+const decodedToken = jwtDecode(token);
+const userId = decodedToken.userId;
+const user = await User.findOne({ _id: userId });
+if(user){
+
+  res.json({url: user.url, firstName: user.firstName, secondName: user.secondName})
+} else {
+  res.status(404).json({message: "Not found"})
+}
+
+  }
+),
 router.post(
   '/login',
   [
