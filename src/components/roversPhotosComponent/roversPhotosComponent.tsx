@@ -43,7 +43,7 @@ useEffect(()=> {
      <Calendar setSearchDate={setSearchDate} /> 
 
 <div className="roversRenderPhotos">
-  {data.photos.map((item, index)=> (
+  {data.photos.length>1 && data.photos.map((item, index)=> (
     <RoversPhotosComponentItem  key={index} date={item.earth_date} src={item.img_src} />
     ))}
     </div> 

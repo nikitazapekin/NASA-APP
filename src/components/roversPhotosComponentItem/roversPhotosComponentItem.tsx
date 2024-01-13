@@ -31,7 +31,7 @@ console.log("idddd" +id, idd)
         <div className="roversPhotosComponentItem">
          <div className="roversPhotosComponentItemTitle">{date}</div>
             <img className="roversPhotosComponentItemImage" src={src} alt="mars" />
-<img onClick={handleClick} className="allDailyPicturesItemAddToFavourite" src={Heart} />
+<img onClick={handleClick} className="allDailyPicturesItemAddToFavourite" src={Heart} /> 
         </div>
     )
 }

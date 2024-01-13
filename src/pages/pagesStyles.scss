@@ -2,23 +2,7 @@
     min-height: 100vh;
 }
 
-/*
-.container-body {
-    height: 6000px;
-  }
-  .spinnner {
-    width: 140px;
-    height: 140px;
-    background-color: cornflowerblue;
- //   margin: auto;
-   // margin-top: 55%;
-margin-top: 100px;
-position: relative;
-z-index: 111;
-  } 
 
-
-*/
 
 
 
@@ -27,5 +11,9 @@ z-index: 111;
     min-height: 100vh;
     display: block;
     height: auto;
-    overflow: hidden;
+    overflow-x: hidden;
+   // overflow: hidden;
+}
+.pageLayout::-webkit-scrollbar {
+  width: 0;
 }

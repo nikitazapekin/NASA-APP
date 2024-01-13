@@ -37,7 +37,6 @@ setSearchItems([]);
  if (timer) {
   clearTimeout(timer);  
 }
- 
 const newTimer = setTimeout(() => {
   setTypedValue(event.target.value)
   sendRequest(event.target.value);
@@ -104,10 +103,7 @@ navigate(`/found-elements/${typedValue}`)
 
 <input
 className={`searchInputZ ${isSearchActive ? 'active' : ''}`}
-//dataTest="search"
-//test={"search"}
 name="searchh"
-// placeholder="Search"  
        onChange={ searchForm}
 />
 

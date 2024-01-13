@@ -20,6 +20,7 @@ import "./accountComponent.scss"
 import AccountComponentItem from "../accountComponentItem/accountComponentItem"
 import { useContext, useEffect, useState } from "react"
 import { jwtDecode } from "jwt-decode";
+import Footer from "../footer/footer";
 interface loginProps {
     token: string | null,
     id: string | null,
@@ -45,7 +46,6 @@ console.log("U data" +JSON.stringify(userData))
 if(userData!=undefined){
 
     if(typeof userData.token =="string" ){
-        
         console.log("decode" + JSON.stringify(jwtDecode(userData.token)))
     }
 }
@@ -54,6 +54,7 @@ if(userData!=undefined){
         <div className="accountComponent">
          
             <AccountComponentItem id={id} idd={idd}  />
+            <Footer />
         </div>
     )
 }

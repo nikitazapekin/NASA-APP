@@ -13,11 +13,11 @@ import { AllDailyPicturesActionTypes } from "../../types/allDailyPictures"
 import AllDailyPicturesItem from "../../components/allDailyPicturesItem/allDailyPicturesItem"
 import PanelForDailyPictureSearch from "../../components/panelForDailyPictureSearch/panelForDailyPictureSearch"
 import SearchByDataMonth from "../../components/searchByMonthComponent/searchByMonthComponent"
-import Spinner from 'react-bootstrap/Spinner';
+import Spinner from "../../components/spinner/spinner"
+
 interface AchievementsProps {
   isAuthenticated: boolean;
 }
-
 const AchievementsPage =({isAuthenticated}: AchievementsProps)=> {
  const [isClicked, setIsClicked] =useState(false)
  const [isClickedMonth, setIsClickedMonth]=useState(false)
@@ -27,6 +27,9 @@ const AchievementsPage =({isAuthenticated}: AchievementsProps)=> {
 useEffect(()=> {
   fetchAllDailyPictures(limitBefore, limit)
       }, [limitBefore])
+      if(loading){
+        return <Spinner />
+      }
     return (
         <div className="achievementsPage">
         <Navigation isAuthenticated={isAuthenticated} />
@@ -48,23 +51,9 @@ useEffect(()=> {
   </>
 )
     )}
-
         </div>
-
-
-
-
-<button onClick={()=> {
-fetchAllDailyPictures("2022-05-01", "2022-06-01")
-
-}}>
-  sss
-</button>
+        <Footer />
         </div>
     )
 }
 export default AchievementsPage
-//iDEMvxHddUvPeuGSIJPzGzRxWWlFxTsWtjz6Wg7v
-//https://api.nasa.gov/neo/rest/v1/feed?start_date=2015-09-07&end_date=2015-09-08&api_key=iDEMvxHddUvPeuGSIJPzGzRxWWlFxTsWtjz6Wg7v
-//https://api.nasa.gov/neo/rest/v1/feed?api_key=iDEMvxHddUvPeuGSIJPzGzRxWWlFxTsWtjz6Wg7v
-//https://api.nasa.gov/planetary/apod?start_date=2015-09-07&end_date=2015-09-08&api_key=iDEMvxHddUvPeuGSIJPzGzRxWWlFxTsWtjz6Wg7v - picture of day

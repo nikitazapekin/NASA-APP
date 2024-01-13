@@ -4,6 +4,8 @@ import { fetchNasaDatabase } from "../../store/action-creator/nasaDatabase";
 import { fetchNasaDatabaseList } from "../../store/action-creator/nasaDatabaseList";
 import { useActions } from "../../hooks/useActions"
 import { useEffect } from "react";
+import "../pagesStyles.scss"
+import Footer from "../../components/footer/footer";
 import { useTypedSelectors } from "../../hooks/useTypedSelectors"
 //import Spinner from "../spinner/spinner"
 import Spinner from "../../components/spinner/spinner";
@@ -28,7 +30,7 @@ console.log(data.collection.items)
       return <Spinner />
     }
     return ( 
-        <>
+        <div className="pageLayout">
         <Navigation isAuthenticated={isAuthenticated} />
 {data && data.collection && data.collection.items && data.collection.items.length > 0 ? (
   data.collection.items.map((item, index) => (
@@ -48,7 +50,8 @@ console.log(data.collection.items)
 ) : (
   <h1>No search results.</h1>
 )}
-        </>
+<Footer />
+        </div>
      );
 }
 export default FoundSerachItems;
