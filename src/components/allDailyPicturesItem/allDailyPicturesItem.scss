@@ -29,3 +29,17 @@
     white-space: nowrap;
     padding: 30px;
 }
+.allDailyPicturesItemAddToFavourite {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 2px solid black;
+   margin-left:  100px;
+   cursor: pointer;
+   transition: 0.5s ease-in-out;
+   perspective: 300px;
+}
+.allDailyPicturesItemAddToFavourite:hover {
+    box-shadow: rgba(14, 3, 167, 0.4) 5px 5px, rgba(15, 0, 146, 0.3) 10px 10px, rgba(38, 1, 124, 0.2) 15px 15px, rgba(3, 2, 116, 0.1) 20px 20px, rgba(64, 2, 105, 0.05) 25px 25px;
+transform: rotateZ(10deg) rotateY(30deg);
+}

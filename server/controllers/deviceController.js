@@ -19,7 +19,61 @@ class DeviceController {
       res.status(500).json({ message: e });
     }
   }
+async addToFavPhoto(req, res) {
+  const  {token, title, url, date, explanation } =req.body
+  console.log("clear")
+ try {
+  const decodedToken = jwtDecode(token);
+  const userId = decodedToken.userId;
+  const user = await User.findOne({ _id: userId });
+const itemObject ={
+  title: title,
+  url: url,
+  date: date,
+  explanation: explanation
+}
+user.set({ 'fav.photos': [...user.fav.photos, itemObject] });
+const updatedUser = await user.save();
+ } catch(e){
+  res.status(500).json(e)
+ }
+}
 
+
+
+async getFavPhoto(req, res) {
+  const  {token } =req.body
+  console.log("wwww")
+ try {
+  const decodedToken = jwtDecode(token);
+  const userId = decodedToken.userId;
+  const user = await User.findOne({ _id: userId });
+res.json({data: user.fav.photos})
+ } catch(e){
+  res.status(500).json(e)
+ }
+}
+
+
+
+async removeFromFavPhoto(req, res) {
+  const  {token, url } =req.body
+try {
+  const decodedToken = jwtDecode(token);
+  const userId = decodedToken.userId;
+  const user = await User.findOne({ _id: userId });
+//  const arr =user.fav.photos.map(item=>item.url!=url ? item : [])
+const arr = user.fav.photos.filter(item => item.url !== url);
+
+  console.log("ARR" +JSON.stringify(arr))
+  user.set({ 'fav.photos': arr });
+  //user.set({ 'fav.photos': [...user.fav.photos, itemObject] });
+//  user.set({ 'fav.photos': user.fav.photos.map(item=>item.url!=url)});
+ const updatedUser = await user.save();
+} catch(e) {
+  res.status(500).json({message: e})
+}
+}
   async setAvatar(req, res) {
     try {
       let { url, token } = req.body;
@@ -62,16 +116,6 @@ const user = await User.findOne({ _id: userId });
 const hashedPassword = await bcrypt.hash(password, 12)
 user.set({ email: email, password: hashedPassword}); 
 const updatedUser = await user.save();
-
-/*const decodedToken = jwtDecode(token);
-const userId = decodedToken.userId;
-const user = await User.findOne({ _id: userId }); */
-//const isEmailAdres= validator.isEmail(email); 
-//console.log("isValid"+isEmailAdres)
-//check('email', 'Введите корректный email').isEmail()
-//user.set({ url:  `http://localhost:5000/${fileName}` }); 
-//const updatedUser = await user.save();
-
 } catch(e){
   res.status(500).json({message: e})
 }

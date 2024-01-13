@@ -3,11 +3,12 @@ import { useActions } from "../../hooks/useActions";
 import { useTypedSelectors } from '../../hooks/useTypedSelectors';
 import JwtDecode from '../../hooks/jwt-decode.hook';
 import "./addAvatar.scss"
+import Spinner from '../spinner/spinner';
 
 
 function Avatar() {
   const { fetchUserData, fetchSetUserLogo, fetchSetEmailAndPassword, fetchUserDataToken } = useActions();
-  const { data } = useTypedSelectors(state => state.GetUserDataTokenReducer);
+  const { data, loading, error } = useTypedSelectors(state => state.GetUserDataTokenReducer);
   const [selectedFile, setSelectedFile] = useState(null);
   const [imageUrl, setImageUrl] = useState<string | null>(null);
   const { userData } = JwtDecode();
@@ -22,7 +23,6 @@ function Avatar() {
 //if(userData.token=="string"){
 console.log("Is stringg")
   fetchUserDataToken(userData.token);
-//}
     }
     console.log("AFTER USER DATA")
   }, [userData]);
@@ -74,6 +74,12 @@ const handleClick= ()=> {
       fetchSetEmailAndPassword(personalData, userData.token)
     }
   }
+  }
+  if(loading){
+    return (
+      
+      <Spinner />
+      ) 
   }
   return (
     <div className='avatarBlock'>

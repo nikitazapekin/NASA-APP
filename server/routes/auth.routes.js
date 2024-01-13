@@ -68,13 +68,14 @@ const userId = decodedToken.userId;
 const user = await User.findOne({ _id: userId });
 if(user){
 
-  res.json({url: user.url, firstName: user.firstName, secondName: user.secondName})
+  res.json({url: user.url, firstName: user.firstName, secondName: user.secondName, fav: user.fav, email: user.email})
 } else {
   res.status(404).json({message: "Not found"})
 }
 
   }
 ),
+
 router.post(
   '/login',
   [

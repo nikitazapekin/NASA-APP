@@ -1,7 +1,7 @@
 import { useTypedSelectors } from "../../hooks/useTypedSelectors"
  
 import { useActions } from "../../hooks/useActions"
-import { useEffect, useMemo } from "react"
+import { useEffect, useMemo, useCallback } from "react"
 import { useState } from "react"
 import "./roversPhotosComponent.scss"
 import Spinner from "../spinner/spinner"
@@ -19,6 +19,7 @@ const RoversPhotosComponent =({id, idd}: RoversPhotoComponentProps)=> {
   const [isEmpty, setIsEmpty] =useState(false)
 const {fetchRoverCamera} =useActions()
 const date =new Date()
+const [isRendered, setIsRendered] =useState(false)
  const [searchDate, setSearchDate] = useState({
    year: date.getFullYear(),
    month: date.getMonth(),
@@ -32,18 +33,8 @@ const date =new Date()
 useEffect(()=> {
   setIsEmpty(isValueInArrayOrEmpty(data.photos))
 }, [data])
- useEffect(()=> {
-      if(id!=undefined && idd!=undefined ){
-      fetchRoverCamera(id, idd, searchDate)
-      }
-    }, [])  
     if(loading) {
-        return (
-            <Spinner />
-        )
-    }
-    if(loading) {
-      return <Spinner />
+     return <Spinner />
     }
     return (
         <div className="roversPhotosComponent">
