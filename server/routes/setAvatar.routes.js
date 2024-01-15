@@ -9,5 +9,9 @@ deviceController.setEmailAndPassword)
 router.post('/addToFavPhoto',  deviceController.addToFavPhoto)
 router.post('/getFavPhoto',  deviceController.getFavPhoto)
 router.post('/removeFromFavPhoto',  deviceController.removeFromFavPhoto)
+router.post('/addArticleToDatabase',  deviceController.addArticleToDatabase)
+router.post('/getUserSubscribtions', deviceController.getSubscribtions)
+router.post('/removeArticleFromDatabase', deviceController.removeArticleFromDatabase)
 module.exports = router 
 //removeFromFavPhoto
+//removeArticleFromDatabase

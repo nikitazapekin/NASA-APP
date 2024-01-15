@@ -21,7 +21,6 @@ interface InternalPropsToRemove {
     url: string,
     }
 export const removePhotoFromFavourite =async ({token,  url }: InternalPropsToRemove) => {
-    console.log( "is work")
     try{
         const response = await axios.post(`/api/set/removeFromFavPhoto`, {token, url } )
         console.log(response)

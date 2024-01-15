@@ -13,7 +13,6 @@ export const useAuth = () => {
   const [userId, setUserId] = useState<null | string>(null)
 const [firstName, setFirstName] =useState<null | string>(null)
 const [secondName, setSecondName] =useState<null | string>(null)
-
   const login = useCallback((jwtToken: string, id: string, firstName: string, secondName: string) => {
     setToken(jwtToken)
     setUserId(id)
@@ -23,8 +22,6 @@ const [secondName, setSecondName] =useState<null | string>(null)
       userId: id, token: jwtToken, firstName: firstName, secondName: secondName
     }))
   }, [])
-
-
   const logout = useCallback(() => {
     setToken(null)
     setUserId(null)

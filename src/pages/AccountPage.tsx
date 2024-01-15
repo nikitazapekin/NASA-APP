@@ -9,7 +9,6 @@ const AccountPage =({isAuthenticated}: AccountPageProps)=> {
         <div className="pageLayout">
         <Navigation isAuthenticated={isAuthenticated} />
     <AccountComponent />
-
         </div>
     )
 }

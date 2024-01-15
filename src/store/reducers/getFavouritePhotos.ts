@@ -21,7 +21,6 @@ data: [
     loading: false,
     error: null
 }
-
 export const GetFavouritePhotosReducer = (state = initialState, action: GetUserFavouritePhotosAction): GetUserFavouritePhotosState => {
     switch (action.type) {
       case GetUserFavouritePhotosActionTypes.FETCH_USER_FAVOURITE_PHOTOS:

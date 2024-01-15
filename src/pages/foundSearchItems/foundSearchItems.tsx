@@ -7,7 +7,6 @@ import { useEffect } from "react";
 import "../pagesStyles.scss"
 import Footer from "../../components/footer/footer";
 import { useTypedSelectors } from "../../hooks/useTypedSelectors"
-//import Spinner from "../spinner/spinner"
 import Spinner from "../../components/spinner/spinner";
 import RenderOfFoundSearchItems from "../../components/renderOfFoundSearchItems/renderOfFoundSearchItems";
 interface ObjectsNearEarthProps {
@@ -26,14 +25,11 @@ console.log("data at" +JSON.stringify(data))
 console.log(data.collection.items)
 }, [data])
     const {id}= useParams()
-    if(loading){ 
-      return <Spinner />
-    }
     return ( 
         <div className="pageLayout">
         <Navigation isAuthenticated={isAuthenticated} />
-{data && data.collection && data.collection.items && data.collection.items.length > 0 ? (
-  data.collection.items.map((item, index) => (
+          {data && data.collection && data.collection.items && data.collection.items.length > 0 ? (
+            data.collection.items.map((item, index) => (
     (item.links && item.links[0]?.href) || item?.href ? (
       <RenderOfFoundSearchItems
         key={index}
@@ -43,13 +39,19 @@ console.log(data.collection.items)
         url={item.links && item.links[0]?.href || item?.href}
         nasa_id={item.data[0].nasa_id}
       />
-    ) : (
-   <></>
-    )
-  ))
-) : (
-  <h1>No search results.</h1>
-)}
+
+      ) : (
+      <></>
+      )
+      ))
+      ) : (
+        <h1>No search results.</h1>
+        )}
+     {loading ? (
+      <Spinner />
+     ) : (
+      <></>
+     )}
 <Footer />
         </div>
      );

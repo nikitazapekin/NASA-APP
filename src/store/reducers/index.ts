@@ -17,6 +17,8 @@ import { setUserPhotoReducer } from "./setUserLogo";
 import { setUserEmailAndPasswordReducer } from "./setUserEmailAndPassword";
 import { GetUserDataTokenReducer } from "./getUserDataToken";
 import { GetFavouritePhotosReducer } from "./getFavouritePhotos";
+import { GetSubscribtionsReducer } from "./getSubscribtions";
+import { MyArticleDataReducer } from "./MyArticlesData";
 export const rootReducer = combineReducers({
     user: userReducer,
     achievements: picturesReducer,
@@ -35,7 +37,9 @@ objectsNearEarthReducer: objectsNearEarthReducer,
  SetUserPhoto: setUserPhotoReducer,
  SetUserEmailAndPassword: setUserEmailAndPasswordReducer,
 GetUserDataTokenReducer: GetUserDataTokenReducer,
-GetFavouritePhotosReducer: GetFavouritePhotosReducer
+GetFavouritePhotosReducer: GetFavouritePhotosReducer,
+GetSubscribtionsReducer: GetSubscribtionsReducer,
+ MyArticlesDataReducer: MyArticleDataReducer
  
 })
 export type RootState = ReturnType<typeof rootReducer>

@@ -16,6 +16,8 @@ import * as SetUserPhotoCreator from "./setUserLogo"
 import * as SetEmailAndPasswordCreator from "./setEmailAndPassword"
 import * as GetUserDataTokenCreator from "./getUserDataToken"
 import * as GetFavouritePhotosCreator from "./getFavouritePhotos"
+import * as GetSubscribtionsCreator from "./getSubscribtions"
+import * as MyArticlesDataCreator from "./MyArticlesData"
 export default {
     ...TodoActionCreators,
     ...UserActionCreators,
@@ -34,6 +36,8 @@ export default {
     ...SetUserPhotoCreator,
     ...SetEmailAndPasswordCreator, 
     ...GetUserDataTokenCreator,
-    ...GetFavouritePhotosCreator
+    ...GetFavouritePhotosCreator,
+    ...GetSubscribtionsCreator,
+    ...MyArticlesDataCreator
 
 }

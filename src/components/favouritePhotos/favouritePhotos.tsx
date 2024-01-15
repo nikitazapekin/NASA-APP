@@ -53,8 +53,6 @@ data.data.map((item, index)=> (
   </div>
 ))
  }
-
-
     </div>
   );
 }

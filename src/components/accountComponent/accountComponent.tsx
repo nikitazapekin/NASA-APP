@@ -1,19 +1,3 @@
-/*import { useParams } from "react-router"
-import "./accountComponent.scss"
-import AccountComponentItem from "../accountComponentItem/accountComponentItem"
-import { useContext } from "react"
-const AccountComponent =()=> {
-    const storageName = 'userData'
-  //  const {jwt} = useContext()
-    const {id, idd} =useParams()
-    return  (
-        <div className="accountComponent">
-<AccountComponentItem  id={id} idd={idd} />
-        </div>
-    )
-}
-export default AccountComponent */
-
 
 import { useParams } from "react-router"
 import "./accountComponent.scss"
@@ -29,22 +13,16 @@ interface loginProps {
   } 
 const AccountComponent =()=> {
     const storageName = 'userData'
-    // const {jwt} = useContext()
     const {id, idd} =useParams()
     const [userData, setUserData] = useState<loginProps>()
-
     useEffect(() => {
-        
         const userDataFromStorage = localStorage.getItem(storageName)
-        if (userDataFromStorage) {
-         
+        if (userDataFromStorage) {   
             setUserData(JSON.parse(userDataFromStorage))
         }
     }, []) 
 useEffect(()=> {
-console.log("U data" +JSON.stringify(userData))
 if(userData!=undefined){
-
     if(typeof userData.token =="string" ){
         console.log("decode" + JSON.stringify(jwtDecode(userData.token)))
     }

@@ -12,9 +12,6 @@ import { response } from "express"
             dispatch({type:GetUserDataTokenActionTypes.FETCH_USER_DATA_TOKEN})
     
      console.log("AACTS")
-      // const response =await  axios.post('/api/auth/login', {email: "wotblitz362@mail.ru", password: "Belorus2010" })
-   
-   
      if(typeof token=="string"){
 
      const response =await  axios.post('/api/auth/loginn', {token: token})

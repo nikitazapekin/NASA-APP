@@ -8,14 +8,16 @@ import { useEffect, useState } from "react";
 import Spinner from "../spinner/spinner"
 import ErrorBoundary from "../ErrorBoundary/errorBoundary";
 import { fetchOneDevice } from "../../http/fo";
+import JwtDecode from "../../hooks/jwt-decode.hook";
+import { subscribtionsActions } from "../../http/subscribtions";
 interface props {
     id: string | undefined,
     idd: string |  undefined
 }
 const ArticleBox = ({id, idd}: props) => {
+    const {userData} =JwtDecode()
     const {data1,loading1, error1} =useTypedSelectors(state=> state.ArticleReducer)
     const {data, error, loading} =useTypedSelectors(state=>state.NasaDatabaseListReducer)
-    const [uniqueLinksArray, setUniqueLinksArray] = useState([])
     const [arrayOfPictures, setArrayOfPictures] = useState<String[]>([])
     const [arrayOfSounds, setArrayOfSounds] =useState<String[]>([])
     const [arrayOfVideos, setArrayOfVideos] = useState<String[]>([])
@@ -30,13 +32,9 @@ const ArticleBox = ({id, idd}: props) => {
         } 
     }, [])
     useEffect(()=> {
-
-    }, [data])
-    useEffect(()=> {
         setArrayOfPictures([])
         setArrayOfSounds([])
         setArrayOfVideos([])
-console.log("DATA!" + JSON.stringify(data1))
 data1.collection.items.forEach(item => {
     if(typeof item.href=="string"){
         if(item.href.includes("mp4")){
@@ -53,17 +51,12 @@ data1.collection.items.forEach(item => {
     }, [data1])
 
     const handleDisplay =(event: any)=> {
-        console.log("ev" +event.target.name)
         if(event.target.name=="videos"){
             setClickedVideos(true)
             setClickedImages(false)
             setClickedSounds(false)
         }
         if(event.target.name=="images"){
-            console.log("AR"+arrayOfPictures)
-            for(let i=0; i<arrayOfPictures.length; i++){
-                console.log(arrayOfPictures[i])
-            }
             setClickedVideos(false)
             setClickedImages(true)
             setClickedSounds(false)
@@ -80,26 +73,35 @@ data1.collection.items.forEach(item => {
         )
     }
     const hd=()=> {
-        console.log("PROOOOOOOOOOOOOOOOOOOOOCESS"+process.env.TEST_API_URL)
-        console.log("ssssssss"+process.env.REACT_APP_API_URL)
             fetchOneDevice(4).then(data =>console.log("FROM MODERM"+data))
-      
+    }
+    const handleSubscribe =()=> {
+        if(userData!=undefined){
+            const token=  userData.token
+            if(typeof token == "string" && id!=null && idd!=null){
+const token = userData.token
+if(typeof token=="string") {
+    subscribtionsActions(token, data, data1 )
+}
+            }
+        }
     }
     return ( 
     <div className="articleBox">
+     <h1 style={{display: data.collection.items[0]?.data[0]?.title ? "block" : "none"}} className="addArticleIntoDatabase" onClick={handleSubscribe}>Save article</h1>
         <div className="imagesOfArticle">
  <h1 className="articleTitle">
             {(() => {
                 try {
                     return data.collection.items[0]?.data[0]?.title || '';
                 } catch (error) {
-                    return '';
+                    return 'No title';
                 }
             })()} ({(() => {
                 try {
                     return data.collection.items[0]?.data[0]?.date_created || '';
                 } catch (error) {
-                    return '';
+                    return 'No date';
                 }
             })()})
             </h1>
@@ -134,11 +136,6 @@ Sounds
     Ваш браузер не поддерживает видео.
 </video>
 ))}
-
-
-<button onClick={hd}>
-    SHOW
-</button>
   {clickedSounds &&
   arrayOfSounds.map((item, index) => (
     <audio key={index} className="audioOfArticle" controls>

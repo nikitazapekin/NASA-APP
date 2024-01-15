@@ -74,6 +74,72 @@ const arr = user.fav.photos.filter(item => item.url !== url);
   res.status(500).json({message: e})
 }
 }
+
+
+
+async addArticleToDatabase(req, res) {
+  const  {token, data, data1 } =req.body
+  console.log("wggggggggggw")
+  console.log(JSON.stringify(data), JSON.stringify(data1))
+ try {
+  const decodedToken = jwtDecode(token);
+  const userId = decodedToken.userId;
+  const user = await User.findOne({ _id: userId });
+  const itemObject = {
+    data1: data1,
+     data: data
+  }
+  user.set({ 'fav.articles': [...user.fav.articles, itemObject]  }); 
+  const updatedUser = await user.save();
+ } catch(e){
+  res.status(500).json(e)
+ }
+}
+
+
+
+async getSubscribtions(req, res) {
+  const  {token } =req.body
+  console.log("wwww")
+ try {
+  const decodedToken = jwtDecode(token);
+  const userId = decodedToken.userId;
+  const user = await User.findOne({ _id: userId });
+ const newArr = user.fav.articles.map(item =>item.data )
+ console.log(newArr)
+ res.json({data: newArr})
+ } catch(e){
+  res.status(500).json(e)
+ }
+}
+async removeArticleFromDatabase (req, res) {
+const {token, nasa_id} = req.body
+try {
+console.log(nasa_id)
+
+
+const decodedToken = jwtDecode(token);
+const userId = decodedToken.userId;
+const user = await User.findOne({ _id: userId });
+console.log( user.fav.articles.map(item=>{
+ // console.log("EL"+JSON.stringify(item))
+  console.log("WWWW"+ JSON.stringify(item.data.collection.items[0].data[0].nasa_id))
+}))
+const filteredArray = user.fav.articles.filter(item=>item.data.collection.items[0].data[0].nasa_id!=nasa_id)
+user.set({ 'fav.articles': filteredArray  }); 
+console.log("FILTER"+JSON.stringify(filteredArray))
+const updatedUser = await user.save();
+
+
+
+} catch(e) {
+  res.status(500).json({message: e})
+}
+
+}
+
+ 
+
   async setAvatar(req, res) {
     try {
       let { url, token } = req.body;

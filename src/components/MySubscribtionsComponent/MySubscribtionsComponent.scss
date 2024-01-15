@@ -1,0 +1,88 @@
+
+.subscribtionsBlock{
+    //  position: relative;
+    position: absolute;
+      left: 350px;
+      top: 20px;
+      overflow-x: hidden;
+      overflow-y: scroll;
+      width:  70%;
+      height: 600px;
+    
+  }
+  .subscribtionsBlock {
+    scrollbar-width: none;
+  }
+  
+  .subscribtionsBlock::-webkit-scrollbar {
+    width: 0;
+  }
+  .subscribtionsBlockTitle {
+    cursor: pointer;
+  }
+  .subscribtionBlockDiv{
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    position: relative;
+   // background-color: rgb(106, 67, 179);
+  }
+ 
+  .trashIconButton {
+    margin: 5px;
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    width: 50px;
+    height: 50px;
+    right: 0;
+    margin-right: 20px;
+    transition: 0.5s ease-in-out;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 300px;
+  }
+  .trashIconButton:hover {
+    transform: rotateY(30deg) rotateX(10deg);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  } 
+  .trashIconButtonImage {
+    width: 40px;
+    height: 40px;
+  }
+  .backToListOfSubscribtions {
+    cursor: pointer;
+    transform: rotate(180deg);
+    background-color: transparent;
+    font-size: 42px;
+    border: none;
+    outline: none;
+  }
+  .selectedSubscribtionObject {
+    width: 80%;
+    height: auto;
+
+  }
+  .blockOfArticleMultimedia {
+    display: flex;
+    justify-content: center;
+     gap: 30px
+ }
+ .buttonOfMultimedia {
+     width: 200px;
+     height: 70px;
+     font-size: 32px;
+     background-color: #08d;
+     cursor:  pointer;
+     outline: none;
+     border: none;
+     border-radius: 20px;
+     transition: 0.5s ease-in-out;
+     margin-top: 10px;
+     margin-bottom: 10px;
+ }
+.buttonOfMultimedia:hover {
+ transform: translateX(5px);
+}  

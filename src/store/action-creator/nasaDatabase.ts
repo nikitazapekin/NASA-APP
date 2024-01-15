@@ -21,4 +21,3 @@ import axios from "axios"
     }
 }  
 
-//https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity?api_key=iDEMvxHddUvPeuGSIJPzGzRxWWlFxTsWtjz6Wg7v

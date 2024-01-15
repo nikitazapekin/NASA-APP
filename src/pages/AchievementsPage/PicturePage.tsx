@@ -28,7 +28,7 @@ useEffect(()=> {
   fetchAllDailyPictures(limitBefore, limit)
       }, [limitBefore])
       if(loading){
-        return <Spinner />
+       return <Spinner />
       }
     return (
         <div className="achievementsPage">
