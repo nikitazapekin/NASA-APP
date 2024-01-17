@@ -1,18 +1,12 @@
-import {useState, useCallback, useEffect} from 'react'
+import { useState, useCallback, useEffect } from 'react'
 import { useNavigate } from 'react-router'
 const storageName = 'userData'
-interface loginProps {
-  jwtToken: string | null,
-  id: string | null,
-  firstName: string | null,
-  secondName: string | null
-}
 export const useAuth = () => {
   const [token, setToken] = useState<null | string>(null)
   const [ready, setReady] = useState(false)
   const [userId, setUserId] = useState<null | string>(null)
-const [firstName, setFirstName] =useState<null | string>(null)
-const [secondName, setSecondName] =useState<null | string>(null)
+  const [firstName, setFirstName] = useState<null | string>(null)
+  const [secondName, setSecondName] = useState<null | string>(null)
   const login = useCallback((jwtToken: string, id: string, firstName: string, secondName: string) => {
     setToken(jwtToken)
     setUserId(id)

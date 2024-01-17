@@ -4,10 +4,8 @@ import { useTypedSelectors } from '../../hooks/useTypedSelectors';
 import JwtDecode from '../../hooks/jwt-decode.hook';
 import "./addAvatar.scss"
 import Spinner from '../spinner/spinner';
-
-
 function Avatar() {
-  const { fetchUserData, fetchSetUserLogo, fetchSetEmailAndPassword, fetchUserDataToken } = useActions();
+  const { fetchSetUserLogo, fetchSetEmailAndPassword, fetchUserDataToken } = useActions();
   const { data, loading, error } = useTypedSelectors(state => state.GetUserDataTokenReducer);
   const [selectedFile, setSelectedFile] = useState(null);
   const [imageUrl, setImageUrl] = useState<string | null>(null);
@@ -15,18 +13,12 @@ function Avatar() {
   const [personalData, setPersonalData] = useState({
     email: "",
     password: "",
- //token: userData.token
   });
-
   useEffect(() => {
-    if(userData!=undefined){
-//if(userData.token=="string"){
-console.log("Is stringg")
-  fetchUserDataToken(userData.token);
+    if (userData != undefined) {
+      fetchUserDataToken(userData.token);
     }
-    console.log("AFTER USER DATA")
   }, [userData]);
-
   useEffect(() => {
     if (data.url && typeof data.url === "string") {
       setImageUrl(data.url);
@@ -52,12 +44,11 @@ console.log("Is stringg")
     if (userData !== undefined && imageUrl && typeof imageUrl === "string") {
       const token = userData.token;
       const url = imageUrl;
-      if(typeof token=="string"){
+      if (typeof token == "string") {
         fetchSetUserLogo({ token, url });
       }
     }
   }, [imageUrl, userData]);
-
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setPersonalData(prevData => ({
@@ -65,20 +56,17 @@ console.log("Is stringg")
       [name]: value
     }));
   };
-  useEffect(() => {
-    console.log("personal", personalData);
-  }, [personalData]);
-const handleClick= ()=> {
-  if( userData!=undefined){
-    if(typeof userData.token=="string" && userData!=undefined){
-      fetchSetEmailAndPassword(personalData, userData.token)
+  const handleClick = () => {
+    if (userData != undefined) {
+      if (typeof userData.token == "string" && userData != undefined) {
+        fetchSetEmailAndPassword(personalData, userData.token)
+      }
     }
   }
-  }
-  if(loading){
+  if (loading) {
     return (
       <Spinner />
-      ) 
+    )
   }
   return (
     <div className='avatarBlock'>
@@ -135,7 +123,7 @@ const handleClick= ()=> {
           Save
         </button>
       </div>
-  
+
     </div>
   );
 }

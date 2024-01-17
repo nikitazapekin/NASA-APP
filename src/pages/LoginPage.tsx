@@ -4,14 +4,13 @@ import Navigation from "../components/navigation/navigation"
 import "./pagesStyles.scss"
 interface LoginProps {
     isAuthenticated: boolean;
-  }
-  
-const LoginPage =({isAuthenticated}: LoginProps)=> {
+}
+const LoginPage = ({ isAuthenticated }: LoginProps) => {
     return (
         <div className="pageLayout">
-        <Navigation isAuthenticated={isAuthenticated} />
-     <LoginComponent />
-     <Footer />
+            <Navigation isAuthenticated={isAuthenticated} />
+            <LoginComponent />
+            <Footer />
         </div>
     )
 }

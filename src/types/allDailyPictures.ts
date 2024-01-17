@@ -3,10 +3,10 @@ export interface AllDailyPicturesState {
     pictures: any[];
     loading: boolean;
     error: null | string;
-   limitBefore: string;
-    limit:string;
+    limitBefore: string;
+    limit: string;
 }
-export enum AllDailyPicturesActionTypes  {
+export enum AllDailyPicturesActionTypes {
     FETCH_ALL_DAILY_PICTURES = "FETCH_ALL_DAILY_PICTURES",
     FETCH_ALL_DAILY_PICTURES_SUCCESS = "FETCH_ALL_DAILY_PICTURES_SUCCESS",
     FETCH_ALL_DAILY_PICTURES_ERROR = "FETCH_ALL_DAILY_PICTURES_ERROR",

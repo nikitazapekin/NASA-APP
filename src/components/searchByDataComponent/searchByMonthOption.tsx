@@ -7,10 +7,10 @@ const SearchByMonthOption = () => {
   );
   useEffect(() => {
     const newOptions = [];
-   let i=0;
+    let i = 0;
     while (i < months.length) {
       newOptions.push({
-      value: `${months[i]}`,
+        value: `${months[i]}`,
         label: `${months[i]}`,
       });
       i++;

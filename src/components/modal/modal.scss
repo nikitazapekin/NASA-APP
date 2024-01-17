@@ -1,0 +1,97 @@
+.modalWrapper  {
+   width: 500px;
+    height: 600px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+   background-color: #FFF;
+    padding: 10px;
+    z-index: 1011;
+    border-radius: 20px;
+ //   position: relative;
+}
+.overlayStyles { // стили блокировки клика вне формы
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .7);
+  z-index: 1000;
+}
+
+.continueModal {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 70px;
+    color: #fff;
+    font-size: 32px;
+    background-color: #6de65d;
+    border-radius: 40px;
+    transition: 0.5s;
+    cursor: pointer;
+    font-family: 'Calibri';
+    perspective: 300px;
+    margin-bottom: 20px;
+    border: none;
+    outline: none;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.continueModal:hover {
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+.imgSuccess {
+ position: absolute;
+ left: 50%;
+ transform: translateX(-50%);
+ border-radius: 20px;
+}
+.innerWindowText {
+    font-size: 32px;
+    text-align: center;
+    color: grey;
+    max-width: 90%;
+
+}
+.alertSign {
+    background-color: #6de65d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ErrorSign {
+    background-color: #880e0e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.continueModalError {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 70px;
+    color: #fff;
+    font-size: 32px;
+    background-color: #880e0e;
+    border-radius: 40px;
+    transition: 0.5s;
+    cursor: pointer;
+    font-family: 'Calibri';
+    perspective: 300px;
+    margin-bottom: 20px;
+    border: none;
+    outline: none;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.continueModalError:hover {
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}

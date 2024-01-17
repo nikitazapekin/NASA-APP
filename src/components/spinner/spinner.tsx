@@ -1,9 +1,9 @@
 
 import "./spinner.scss"
-const Spinner =()=> {
+const Spinner = () => {
     return (
         <>
-        <span className="loader"></span>
+            <span className="loader"></span>
         </>
     )
 }

@@ -147,3 +147,8 @@
     transition: transform 200ms, color 200ms;
     top: 20px;
   }
+  @media screen and (max-width: 560px) {
+    .registrationPlaceholderError {
+      display:  none;
+    }
+  }

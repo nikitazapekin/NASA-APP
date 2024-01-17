@@ -4,26 +4,23 @@ import "./favouriteSattelitiesComponent.scss"
 import Spinner from "../spinner/spinner"
 import { useTypedSelectors } from "../../hooks/useTypedSelectors"
 import FavouriteSattelitiesComponentItem from "../favouriteSattelitiesComponentItem/favouriteSattelitiesComponentItem"
-
-const FavouriteSattelitiesComponent =()=> {
-    const {fetchSattelities} =useActions()
-    const {data, error, loading}=useTypedSelectors(state=> state.sattelitiesReducer)
-    useEffect(()=> {
-fetchSattelities()
-console.log(data)
+const FavouriteSattelitiesComponent = () => {
+    const { fetchSattelities } = useActions()
+    const { data, error, loading } = useTypedSelectors(state => state.sattelitiesReducer)
+    useEffect(() => {
+        fetchSattelities()
     }, [])
-    if(loading){
-<Spinner />
+    if (loading) {
+        <Spinner />
     }
     return (
         <div className="favouriteSattelitiesComponent">
             <h1 className="recentlyPopularSattelities">Recently popular sattelities</h1>
-
             <div className="recentlyPopularSattelitiesComponentGrid">
-            {data.member.map((item, index)=> (
-                <FavouriteSattelitiesComponentItem  item={item} />   
+                {data.member.map((item, index) => (
+                    <FavouriteSattelitiesComponentItem item={item} />
                 ))}
-                </div>
+            </div>
         </div>
     )
 }

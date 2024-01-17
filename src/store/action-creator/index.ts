@@ -2,7 +2,7 @@ import * as UserActionCreators from "./user"
 import * as TodoActionCreators from "./todo"
 import * as AchievementsActionCreator from "./pictures"
 import * as AllDailyPictures from "./allDailyPictures"
-import  * as ObjectsNearEarthCreator from "./objectsNearEarth"
+import * as ObjectsNearEarthCreator from "./objectsNearEarth"
 import * as SattelitiesCreator from "./sattelities"
 import * as SattelitiesIdCreator from "./sattelitiesId"
 import * as RoversCreator from "./rovers"
@@ -23,18 +23,18 @@ export default {
     ...UserActionCreators,
     ...AchievementsActionCreator,
     ...AllDailyPictures,
-    ...ObjectsNearEarthCreator, 
-    ...SattelitiesCreator, 
+    ...ObjectsNearEarthCreator,
+    ...SattelitiesCreator,
     ...SattelitiesIdCreator,
     ...RoversCreator,
     ...RoverCreator,
     ...RoverCameraCreator,
     ...NasaDatabaseCreator,
     ...NasaDatabaseListCreator,
-    ...ArticleCreator, 
+    ...ArticleCreator,
     ...GetUserDataCreator,
     ...SetUserPhotoCreator,
-    ...SetEmailAndPasswordCreator, 
+    ...SetEmailAndPasswordCreator,
     ...GetUserDataTokenCreator,
     ...GetFavouritePhotosCreator,
     ...GetSubscribtionsCreator,

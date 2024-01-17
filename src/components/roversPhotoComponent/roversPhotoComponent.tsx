@@ -8,29 +8,28 @@ import { Link } from "react-router-dom";
 import Spinner from "../spinner/spinner";
 const RoversPhotoComponent = () => {
   const { data, loading, error } = useTypedSelectors((state) => state.RoversReducer);
-  console.log(data)
   const { fetchRovers } = useActions();
   useEffect(() => {
     fetchRovers();
   }, []);
-  if(loading){
+  if (loading) {
     return <Spinner />
   }
   return (
     <div className="roversPhotoComponent">
       <h1 className="roversPhotoComponentTitle">Rovers</h1>
       <div className="roversPhotoComponentWrapper">
-      {Array.isArray(data.rovers) ? (
-        data.rovers.map(item=> (
-      <Link to={`/Rover photo/${item.name}`}
-      style={{textDecoration: "none", color: "#ffffffb9"}}
-      >   <p className="roversPhotoComponentItem">{item.name}</p> </Link> 
-          ))):
+        {Array.isArray(data.rovers) ? (
+          data.rovers.map(item => (
+            <Link to={`/Rover photo/${item.name}`}
+              style={{ textDecoration: "none", color: "#ffffffb9" }}
+            >   <p className="roversPhotoComponentItem">{item.name}</p> </Link>
+          ))) :
           (
             <>
-          </>
-        )
-      }
+            </>
+          )
+        }
       </div>
     </div>
   );

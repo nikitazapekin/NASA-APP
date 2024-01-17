@@ -13,145 +13,134 @@ import { useTypedSelectors } from "../../hooks/useTypedSelectors"
 import { useActions } from "../../hooks/useActions"
 import { useCallback } from "react"
 import { useNavigate } from "react-router-dom"
-import debounce from 'lodash/debounce';
-interface NavigationProps {
-isAuthenticated: boolean
-}
-const Navigation = ({isAuthenticated}: NavigationProps)=> {
-  const navigate= useNavigate()
+import { NavigationProps } from "./Props"
+const Navigation = ({ isAuthenticated }: NavigationProps) => {
+  const navigate = useNavigate()
   const [isSearchClicked, setIsSearchClicked] = useState(false);
   const [timer, setTimer] = useState<NodeJS.Timeout | null>(null);
-  const [searchItems, setSearchItems]=useState<any[]>([])
-  const auth = useContext(AuthContext)
-  const [value, setValue] =useState("")
-  const {data, error, loading} =useTypedSelectors(state=>state.NasaDatabaseReducer)
- const {fetchNasaDatabase} =useActions()
-  const [isSearchActive, setIsSearchActive] = useState(false); 
-  const [typedValue, setTypedValue] =useState("")
- const handleClickElem=()=> {
-setSearchItems([]);
- }
-  const searchForm=(event: React.ChangeEvent<HTMLInputElement>)=> {
-    if(event.target.name=="searchh"){
-      setIsSearchActive(event.target.value.length > 0); 
- if (timer) {
-  clearTimeout(timer);  
-}
-const newTimer = setTimeout(() => {
-  setTypedValue(event.target.value)
-  sendRequest(event.target.value);
-}, 300);
-setTimer(newTimer);
-}
+  const [searchItems, setSearchItems] = useState<any[]>([])
+  const { data } = useTypedSelectors(state => state.NasaDatabaseReducer)
+  const { fetchNasaDatabase } = useActions()
+  const [isSearchActive, setIsSearchActive] = useState(false);
+  const [typedValue, setTypedValue] = useState("")
+  const handleClickElem = () => {
+    setSearchItems([]);
   }
-  useEffect(()=> {
-    try{
-      setSearchItems(data.collection.items )
-      console.log(data.collection.items[0].data[0].description )
-    }  catch(e){
+  const searchForm = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.name == "searchh") {
+      setIsSearchActive(event.target.value.length > 0);
+      if (timer) {
+        clearTimeout(timer);
+      }
+      const newTimer = setTimeout(() => {
+        setTypedValue(event.target.value)
+        sendRequest(event.target.value);
+      }, 300);
+      setTimer(newTimer);
+    }
+  }
+  useEffect(() => {
+    try {
+      setSearchItems(data.collection.items)
+    } catch (e) {
       console.log(e)
     }
   }, [data])
-    const handleClick=()=> {
-      if(isOpen==true){
-        setIsOpen(false)
-      } 
-      else{
-        setIsOpen(true)
-      }
+  const handleClick = () => {
+    if (isOpen == true) {
+      setIsOpen(false)
     }
-    const [isOpen, setIsOpen] =useState(false)
-    const sendRequest = (query: string) => {
-      try {
-        fetchNasaDatabase(query)
-
-      } catch(e){
-      
-        console.log("ERR"+e)
-      }
-    };
-    const handleNavigate =()=> {
-      setIsSearchClicked(true);
-      console.log("TYPED"+typedValue)
-navigate(`/found-elements/${typedValue}`)
+    else {
+      setIsOpen(true)
     }
+  }
+  const [isOpen, setIsOpen] = useState(false)
+  const sendRequest = (query: string) => {
+    try {
+      fetchNasaDatabase(query)
 
-    return (
-<nav className='navigation'>
-<div className='navigationItem'>
-</div>
-<div className='navigationItem navigationItemMarginLeft '>
-      <div className="navigationItemFlexBefore">
-      <Link style={{textDecoration: "none", color: "#fff"}} to="/">
-        <div className="navigationItemFlexItem">SpaceX</div>
- </Link>
-        <div  className="navigationItemFlexItem"
-        onClick={()=> {
-          handleClick()
-        }}>Info</div>
-        {isOpen ? (
+    } catch (e) {
+
+    }
+  };
+  const handleNavigate = () => {
+    setIsSearchClicked(true);
+    console.log("TYPED" + typedValue)
+    navigate(`/found-elements/${typedValue}`)
+  }
+
+  return (
+    <nav className='navigation'>
+      <div className='navigationItem'>
+      </div>
+      <div className='navigationItem navigationItemMarginLeft '>
+        <div className="navigationItemFlexBefore">
+          <Link style={{ textDecoration: "none", color: "#fff" }} to="/">
+            <div className="navigationItemFlexItem">SpaceX</div>
+          </Link>
+          <div className="navigationItemFlexItem"
+            onClick={() => {
+              handleClick()
+            }}>Info</div>
+          {isOpen ? (
             <>
-            <NavigationWindow isOpen={isOpen} setIsOpen={setIsOpen} />
+              <NavigationWindow isOpen={isOpen} setIsOpen={setIsOpen} />
             </>
-        ) : (
+          ) : (
             <></>
-        )}
-    </div>
-</div>
-<div className="navigationItem ">
-<div className="searchBoxZ">
+          )}
+        </div>
+      </div>
+      <div className="navigationItem ">
+        <div className="searchBoxZ">
 
-<input
-className={`searchInputZ ${isSearchActive ? 'active' : ''}`}
-name="searchh"
-       onChange={ searchForm}
-/>
+          <input
+            className={`searchInputZ ${isSearchActive ? 'active' : ''}`}
+            name="searchh"
+            onChange={searchForm}
+          />
+          <div className="foundedElemsSearch">
+            {isSearchActive && !isSearchClicked && searchItems.length > 0 && searchItems.slice(0, 5).map((item, index) => (
+              <div className="foundedElemSearch" key={index}>
+                <Link style={{ color: "#fff", textDecoration: "none" }} to={`/article/${item.data[0].nasa_id}/${item.data[0].title}`}>
+                  <p className="foundedElemSearchText" onClick={handleClickElem}>
+                    {item.data[0].title}
+                  </p>
+                </Link>
+              </div>
+            ))}
+          </div>
+          <button className="searchButtonZ"   >
+            <img src={Search} className="tyu" onClick={() => handleNavigate()} />
+          </button>
+        </div>
+      </div>
+      {!isAuthenticated ? (
+        <div className="navigationItem">
+          <div className="navigationItemFlex">
+            <Link style={{ textDecoration: "none", color: "#fff" }} to="/signin">
+              <div className="navigationItemFlexItem">Sign in</div>
+            </Link>
+            <Link style={{ textDecoration: "none", color: "#fff" }} to="/signup">
+              <div className="navigationItemFlexItem">Sign up</div>
+            </Link>
+          </div>
+        </div>) :
+        (
+          <>
+            <div className="navigationItem navigationItemPictures">
+              <img className="navigationItemIcon" alt="icon" src={ChatIcon} />
+              <img className="navigationItemIcon" alt="icon" src={Notification} />
+              <Link to={`/account/`}>
+                <img className="navigationItemIcon" alt="icon" src={User} />
+              </Link>
+            </div>
+          </>
+        )
+      }
+      <div className="navigationFon"></div>
 
-
-
-<div className="foundedElemsSearch">
-  {isSearchActive && !isSearchClicked && searchItems.length > 0 && searchItems.slice(0, 5).map((item, index) => (
-    <div className="foundedElemSearch" key={index}>
-      <Link style={{ color: "#fff", textDecoration: "none" }} to={`/article/${item.data[0].nasa_id}/${item.data[0].title}`}>
-        <p className="foundedElemSearchText" onClick={handleClickElem}>
-          {item.data[0].title}
-        </p>
-      </Link>
-    </div>
-  ))}
-</div>
-<button className="searchButtonZ"   >
-        <img src={Search} className="tyu" onClick={()=> handleNavigate()} />
-</button>
-</div>
-</div>
-{ !isAuthenticated ? (
-<div className="navigationItem">
-    <div className="navigationItemFlex">
-      <Link  style={{textDecoration: "none", color: "#fff"}} to="/signin">
-        <div className="navigationItemFlexItem">Sign in</div>
-      </Link>
-        <Link style={{textDecoration: "none", color: "#fff"}} to="/signup">
-        <div className="navigationItemFlexItem">Sign up</div>
-        </Link>
-    </div>
-</div>  ) :
-(
-  <>
-  <div className="navigationItem navigationItemPictures">
-<img className="navigationItemIcon" alt="icon"  src={ChatIcon} />
-<img className="navigationItemIcon" alt="icon"  src={Notification} />
-<Link to={`/account/${auth.firstName}/${auth.secondName}`}>
-
-<img className="navigationItemIcon" alt="icon"  src={User} />
-</Link>
-  </div>
-  </>
-)
-}
-<div className="navigationFon"></div>
-
-</nav>
-    )
+    </nav>
+  )
 }
 export default Navigation

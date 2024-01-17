@@ -28,21 +28,19 @@ router.post(
 
     console.log(req.body)
     const {firstName, secondName, email, password} = req.body
+    //if(firstName.len)
+    console.log("LENGTH" )
     console.log(firstName)
     console.log(secondName)
     console.log(email)
     const candidate = await User.findOne({ email })
-
     if (candidate) {
-      return res.status(400).json({ message: 'Такой пользователь уже существует' })
+      return res.status(400).json({ message: 'Такой пользователь уже существует. Введите другую почту!' })
     }
-
     const hashedPassword = await bcrypt.hash(password, 12)
     const url= "https://cdn-icons-png.flaticon.com/512/1946/1946429.png"
     const user = new User({firstName, secondName, email, password: hashedPassword, url, fav: {articles: [], photos: []} })
-
     await user.save()
-
     res.status(201).json({ message: 'Пользователь создан' })
 
   } catch (e) {
@@ -61,8 +59,6 @@ router.post(
   async (req, res)=> {
 const {token} = req.body
 console.log("TOKEN" + token)
-
-
 const decodedToken = jwtDecode(token);
 const userId = decodedToken.userId;
 const user = await User.findOne({ _id: userId });

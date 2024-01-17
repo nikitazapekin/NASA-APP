@@ -3,43 +3,32 @@ import SearchByMonthOption from "../searchByDataComponent/searchByMonthOption";
 import SearchByYearOption from "../searchByDataComponent/searchByYearOption"
 import "./searchByMonth.scss";
 import { useActions } from "../../hooks/useActions";
-import { useEffect } from "react";
 import { useState } from "react";
 import { months } from "../../utils/month";
-interface TodaysPictureProps {
-  isClickedMonth: boolean,
-  setIsClickedMonth:  React.Dispatch<React.SetStateAction<boolean>>;
-      }
-const SearchByDataMonth = ({isClickedMonth, setIsClickedMonth}: TodaysPictureProps) => {
-const {fetchAllDailyPictures} = useActions()
+import { TodaysPictureProps } from "./Props";
+const SearchByDataMonth = ({ isClickedMonth, setIsClickedMonth }: TodaysPictureProps) => {
+  const { fetchAllDailyPictures } = useActions()
   const [data, setData] = useState({
     year: "",
     month: "",
   });
-
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setData({ ...data, [name]: value });
   };
-
-  const searchFunction = (event:  React.MouseEvent<HTMLButtonElement>) => {
+  const searchFunction = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     event.stopPropagation();
-    console.log(data)
-
-    let year=data.year
- let month = String(months.indexOf(data.month)+1)
-if(month.length==1) {
-  month="0"+month
- }
-
-let date=`${year}-${month}-01`
-
-let lastDay = new Date(Number(year), Number(month), 0).getDate();
-let lastDate=`${year}-${month}-${lastDay}`
-   fetchAllDailyPictures(date, lastDate)
+    let year = data.year
+    let month = String(months.indexOf(data.month) + 1)
+    if (month.length == 1) {
+      month = "0" + month
+    }
+    let date = `${year}-${month}-01`
+    let lastDay = new Date(Number(year), Number(month), 0).getDate();
+    let lastDate = `${year}-${month}-${lastDay}`
+    fetchAllDailyPictures(date, lastDate)
   };
-
   return (
     <form className="searchByDataLineMonth">
       <input
@@ -68,10 +57,10 @@ let lastDate=`${year}-${month}-${lastDay}`
       <datalist id="monthList">
         <SearchByMonthOption />
       </datalist>
-    
-      <button 
-      className="searchByDataComponentButtonMonth"
-      onClick={searchFunction}>Search</button>
+
+      <button
+        className="searchByDataComponentButtonMonth"
+        onClick={searchFunction}>Search</button>
 
     </form>
   );

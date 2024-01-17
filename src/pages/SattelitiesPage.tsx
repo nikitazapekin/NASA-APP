@@ -8,21 +8,14 @@ import SattelitiesMap from "../components/Map/map"
 import Footer from "../components/footer/footer"
 interface SattelitiesPageProps {
     isAuthenticated: boolean;
-  }
-  
-const SattelitiesPage =({isAuthenticated}: SattelitiesPageProps)=> {
-  
-    return  (
+}
+const SattelitiesPage = ({ isAuthenticated }: SattelitiesPageProps) => {
+    return (
         <div className="pageLayout">
-        <Navigation  isAuthenticated={isAuthenticated}/>
-        <FavouriteSattelitiesComponent />
-<Footer />
+            <Navigation isAuthenticated={isAuthenticated} />
+            <FavouriteSattelitiesComponent />
+            <Footer />
         </div>
     )
 }
 export default SattelitiesPage
-
-//https://tle.ivanstanojevic.me/api/tle/25544/propagate
-//https://tle.ivanstanojevic.me/
-//https://tle.ivanstanojevic.me/api/tle
-//https://tle.ivanstanojevic.me/#/docs

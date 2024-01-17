@@ -4,20 +4,18 @@ import "./pagesStyles.scss"
 import Footer from "../components/footer/footer"
 interface ObjectsNearEarthProps {
     isAuthenticated: boolean;
-  }
-  
-const ObjectsNearEarthPage =({isAuthenticated}: ObjectsNearEarthProps)=> {
+}
+const ObjectsNearEarthPage = ({ isAuthenticated }: ObjectsNearEarthProps) => {
     return (
         <div className="pageLayout">
-        <Navigation isAuthenticated={isAuthenticated} />
-<h1 className="objectsNearEarthTitle">
-Impact Risk  оbjects  
+            <Navigation isAuthenticated={isAuthenticated} />
+            <h1 className="objectsNearEarthTitle">
+                Impact Risk  оbjects
 
-</h1>
- <ObjectsNearEarthTable />
- <Footer />
+            </h1>
+            <ObjectsNearEarthTable />
+            <Footer />
         </div>
     )
 }
 export default ObjectsNearEarthPage
-//https://ssd-api.jpl.nasa.gov/sentry.api

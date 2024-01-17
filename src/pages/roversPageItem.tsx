@@ -5,15 +5,14 @@ import "./pagesStyles.scss"
 import Footer from "../components/footer/footer";
 interface RoversPageItemProps {
     isAuthenticated: boolean;
-  }
-  
-const RoversPageItem =({isAuthenticated}: RoversPageItemProps)=> {
-    const {id} =useParams()
+}
+const RoversPageItem = ({ isAuthenticated }: RoversPageItemProps) => {
+    const { id } = useParams()
     return (
         <div className="pageLayout">
-        <Navigation isAuthenticated={isAuthenticated} />
-<RoverPageItemComponent id={id} />
-<Footer />
+            <Navigation isAuthenticated={isAuthenticated} />
+            <RoverPageItemComponent id={id} />
+            <Footer />
         </div>
     )
 }

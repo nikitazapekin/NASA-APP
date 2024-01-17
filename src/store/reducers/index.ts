@@ -22,24 +22,24 @@ import { MyArticleDataReducer } from "./MyArticlesData";
 export const rootReducer = combineReducers({
     user: userReducer,
     achievements: picturesReducer,
-todo: todoReducer,
-allDailyPicturesReducer: allDailyPicturesReducer,
-objectsNearEarthReducer: objectsNearEarthReducer,
- sattelitiesReducer: sattelitiesReducer,
- sattelitiesIdReducer: sattelitiesIdReducer,
- RoversReducer: RoversReducer,
- RoverReducer: RoverReducer,
- RoverCameraReducer: RoverCameraReducer,
- NasaDatabaseReducer: NasaDatabaseReducer,
- NasaDatabaseListReducer:  NasaDatabaseListReducer,
- ArticleReducer: ArticleReducer,
- GetUserDataReducer: GetUserDataReducer,
- SetUserPhoto: setUserPhotoReducer,
- SetUserEmailAndPassword: setUserEmailAndPasswordReducer,
-GetUserDataTokenReducer: GetUserDataTokenReducer,
-GetFavouritePhotosReducer: GetFavouritePhotosReducer,
-GetSubscribtionsReducer: GetSubscribtionsReducer,
- MyArticlesDataReducer: MyArticleDataReducer
- 
+    todo: todoReducer,
+    allDailyPicturesReducer: allDailyPicturesReducer,
+    objectsNearEarthReducer: objectsNearEarthReducer,
+    sattelitiesReducer: sattelitiesReducer,
+    sattelitiesIdReducer: sattelitiesIdReducer,
+    RoversReducer: RoversReducer,
+    RoverReducer: RoverReducer,
+    RoverCameraReducer: RoverCameraReducer,
+    NasaDatabaseReducer: NasaDatabaseReducer,
+    NasaDatabaseListReducer: NasaDatabaseListReducer,
+    ArticleReducer: ArticleReducer,
+    GetUserDataReducer: GetUserDataReducer,
+    SetUserPhoto: setUserPhotoReducer,
+    SetUserEmailAndPassword: setUserEmailAndPasswordReducer,
+    GetUserDataTokenReducer: GetUserDataTokenReducer,
+    GetFavouritePhotosReducer: GetFavouritePhotosReducer,
+    GetSubscribtionsReducer: GetSubscribtionsReducer,
+    MyArticlesDataReducer: MyArticleDataReducer
+
 })
 export type RootState = ReturnType<typeof rootReducer>

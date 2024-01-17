@@ -4,14 +4,13 @@ import RoversPhotoComponent from "../components/roversPhotoComponent/roversPhoto
 import "./pagesStyles.scss"
 interface RoversProps {
     isAuthenticated: boolean;
-  }
-  
-const RoversPage =({isAuthenticated}: RoversProps)=> {
-    return  (
+}
+const RoversPage = ({ isAuthenticated }: RoversProps) => {
+    return (
         <div className="pageLayout">
-       <Navigation isAuthenticated={isAuthenticated} /> 
-       <RoversPhotoComponent />
-       <Footer />
+            <Navigation isAuthenticated={isAuthenticated} />
+            <RoversPhotoComponent />
+            <Footer />
         </div>
     )
 }

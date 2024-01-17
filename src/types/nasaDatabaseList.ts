@@ -1,57 +1,49 @@
 
 export enum NasaDatabaseActionTypes {
-    FETCH_NASAA_DATABASE='FETCH_NASA_DATABASE',
-    FETCH_NASAA_DATABASE_SUCCESS='FETCH_NASA_DATABASE_SUCCESS',
-    FETCH_NASAA_DATABASE_ERROR='FETCH_NASA_DATABASE_ERROR',
+    FETCH_NASAA_DATABASE = 'FETCH_NASA_DATABASE',
+    FETCH_NASAA_DATABASE_SUCCESS = 'FETCH_NASA_DATABASE_SUCCESS',
+    FETCH_NASAA_DATABASE_ERROR = 'FETCH_NASA_DATABASE_ERROR',
     SET_NASAA_DATABASE_PAGE = 'SET_NASA_DATABASE_PAGE'
 }
 interface FetchNasaDatabaseAction {
-    type:NasaDatabaseActionTypes.FETCH_NASAA_DATABASE
+    type: NasaDatabaseActionTypes.FETCH_NASAA_DATABASE
 }
 export interface RoverCamera {
     name: string,
     fullname: string
-  }
+}
 interface FetchNasaDatabaseSuccessAction {
     type: NasaDatabaseActionTypes.FETCH_NASAA_DATABASE_SUCCESS;
-
-
-
-
-
-   payload:  {
+    payload: {
         collection: {
-            version: string ,
+            version: string,
             href: string,
 
 
             items: Array<
-                 {
-                     href: string ,
-                       data: Array<{
-                             center:  string,
-                             title: string ,
-                             keywords: Array<string>
-                            
-                             location:string ,
-                             nasa_id: string ,
-                             date_created: string ,
-                             media_type: string ,
-                             description: string
-                         }>
+                {
+                    href: string,
+                    data: Array<{
+                        center: string,
+                        title: string,
+                        keywords: Array<string>
+
+                        location: string,
+                        nasa_id: string,
+                        date_created: string,
+                        media_type: string,
+                        description: string
+                    }>
                     // ],
-                     links: Array<{  
-                         href: string ,
-                         rel:  string,
-                         render:  string
-                     }>
-                     
-                     
-            
-                 }>
-          
+                    links: Array<{
+                        href: string,
+                        rel: string,
+                        render: string
+                    }>
+                }>
+
+        }
     }
- }
 }
 interface FetchNasaDatabaseErrorAction {
     type: NasaDatabaseActionTypes.FETCH_NASAA_DATABASE_ERROR;
@@ -60,55 +52,50 @@ interface FetchNasaDatabaseErrorAction {
 
 
 interface SetNasaDatabasePage {
-  type: NasaDatabaseActionTypes.SET_NASAA_DATABASE_PAGE;
-  payload: number;
+    type: NasaDatabaseActionTypes.SET_NASAA_DATABASE_PAGE;
+    payload: number;
 }
 
 
 export interface NasaDatabaseStatee {
-data: {
+    data: {
 
-    collection: {
-        version: string ,
-        href: string,
-        items: Array<
-       // [
-         
-            {
-                href: string ,
-              //  data: [
-                  data: Array<{
-                        center:  string,
-                        title: string ,
+        collection: {
+            version: string,
+            href: string,
+            items: Array<
+                {
+                    href: string,
+                    data: Array<{
+                        center: string,
+                        title: string,
                         keywords: Array<string>
-                       
-                        location:string ,
-                        nasa_id: string ,
-                        date_created: string ,
-                        media_type: string ,
+
+                        location: string,
+                        nasa_id: string,
+                        date_created: string,
+                        media_type: string,
                         description: string
                     }>
-               // ],
-                links: Array<{  
-                    href: string ,
-                    rel:  string,
-                    render:  string
-                }>
-                
-                
-       
-            }>
-      // ]
-   }
-       
+                    links: Array<{
+                        href: string,
+                        rel: string,
+                        render: string
+                    }>
 
-    
-},
+
+
+                }>
+        }
+
+
+
+    },
     loading: boolean;
     error: null | string;
     page: number;
     limit: number
-  }
- 
+}
+
 
 export type NasaDatabaseAction = FetchNasaDatabaseAction | FetchNasaDatabaseErrorAction | FetchNasaDatabaseSuccessAction | SetNasaDatabasePage

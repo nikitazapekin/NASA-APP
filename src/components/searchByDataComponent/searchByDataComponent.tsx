@@ -6,42 +6,36 @@ import "./searchByDataComponent.scss";
 import { useActions } from "../../hooks/useActions";
 import { useState } from "react";
 import { months } from "../../utils/month";
-
 import { useTypedSelectors } from "../../hooks/useTypedSelectors"
-interface TodaysPictureProps {
-  isClicked: boolean,
-  setIsClicked:  React.Dispatch<React.SetStateAction<boolean>>;
-      }
-const SearchByDataComponent = ({isClicked, setIsClicked}: TodaysPictureProps) => {
-  const {  fetchAllDailyPictures } = useActions();
+import { TodaysPictureProps } from "./Props";
+const SearchByDataComponent = ({ isClicked, setIsClicked }: TodaysPictureProps) => {
+  const { fetchAllDailyPictures } = useActions();
   const [data, setData] = useState({
     year: "",
     month: "",
     day: "",
   });
-
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setData({ ...data, [name]: value });
   };
-  const searchFunction = (event:  React.MouseEvent<HTMLButtonElement>) => {
+  const searchFunction = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     event.stopPropagation();
     console.log(data)
-    let year=data.year
-    let day =data.day
- let month = String(months.indexOf(data.month)+1)
-if(month.length==1) {
-  month="0"+month
- }
- 
- if(day.length==1) {
-  day="0"+day
- }
-let date=`${year}-${month}-${day}`
-   fetchAllDailyPictures(date, date)
-  };
+    let year = data.year
+    let day = data.day
+    let month = String(months.indexOf(data.month) + 1)
+    if (month.length == 1) {
+      month = "0" + month
+    }
 
+    if (day.length == 1) {
+      day = "0" + day
+    }
+    let date = `${year}-${month}-${day}`
+    fetchAllDailyPictures(date, date)
+  };
   return (
     <form className="searchByDataLine">
       <input
@@ -83,9 +77,9 @@ let date=`${year}-${month}-${day}`
       <datalist id="dayList">
         <SearchByDayOption />
       </datalist>
-      <button 
-      className="searchByDataComponentButton"
-      onClick={searchFunction}>Search</button>
+      <button
+        className="searchByDataComponentButton"
+        onClick={searchFunction}>Search</button>
 
     </form>
   );

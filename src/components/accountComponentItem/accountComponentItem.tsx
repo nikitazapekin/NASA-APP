@@ -8,10 +8,7 @@ import { AuthContext } from "../../context/AuthContext";
 import Spinner from "../spinner/spinner";
 import { useTypedSelectors } from "../../hooks/useTypedSelectors"
 import MySubscribtionsComponent from "../MySubscribtionsComponent/MySubscribtionsComponent";
-interface AccountComponentItemProps {
-  id: string | undefined;
-  idd: string | undefined;
-}
+import { AccountComponentItemProps } from "./Props";
 const AccountComponentItem: React.FC<AccountComponentItemProps> = ({
   id,
   idd,
@@ -30,11 +27,11 @@ const AccountComponentItem: React.FC<AccountComponentItemProps> = ({
         setActiveComponent(<Avatar />);
         break;
       case "My subscriptions":
-    
+
         setActiveComponent(<MySubscribtionsComponent />);
         break;
       case "My favourite photos":
-   
+
         setActiveComponent(<MyFavouritePhotos />);
         break;
       default:
@@ -48,13 +45,13 @@ const AccountComponentItem: React.FC<AccountComponentItemProps> = ({
   return (
     <div className="accountComponentItem">
       <div className="accountComponentItemBar">
-        <div   className="accountComponentItemBarItem" onClick={handleClick}>
+        <div className="accountComponentItemBarItem" onClick={handleClick}>
           My data
         </div>
-        <div  className="accountComponentItemBarItem" onClick={handleClick}>
+        <div className="accountComponentItemBarItem" onClick={handleClick}>
           My subscriptions
         </div>
-        <div  className="accountComponentItemBarItem" onClick={handleClick}>
+        <div className="accountComponentItemBarItem" onClick={handleClick}>
           My favourite photos
         </div>
         <div onClick={handleSubmit} className="accountComponentItemBarItem">
@@ -62,10 +59,9 @@ const AccountComponentItem: React.FC<AccountComponentItemProps> = ({
         </div>
       </div>
 
-     {activeComponent}
+      {activeComponent}
     </div>
   );
 };
 
 export default AccountComponentItem;
- 
